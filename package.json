@@ -49,6 +49,7 @@
   },
   "description": "An Ionic project",
   "devDependencies": {
-    "redux-devtools-extension": "^2.13.8"
+    "redux-devtools-extension": "^2.13.8",
+    "sass-node": "^4.11.2"
   }
 }
