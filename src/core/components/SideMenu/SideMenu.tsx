@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem } from "@ionic/react"
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { RouteNamedProps } from "../../../routing/routes.model";
 import { SideMenuProps } from "./SideMenu.model";
