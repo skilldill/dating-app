@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useRef } from "react";
 import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem } from "@ionic/react"
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+
 import { SideMenuProps } from "./SideMenu.model";
 
 export const SideMenu:React.FC<SideMenuProps> = (props) => {
     const contentId = "SideMenu";
+    const history = useHistory();
+    // TODO: Необходимо any заменить на HTMLIonMenuElement
+    const menuRef = useRef<any>(null);
+
+    const handleChangeRoute = (event:React.MouseEvent<HTMLAnchorElement>, to: string) => {
+        event.preventDefault();
+        history.push(to);
+        menuRef.current?.close()
+    }
 
     return (
         <>
-            <IonMenu side="start" menuId="first" contentId={contentId} >
+            <IonMenu ref={menuRef} side="start" menuId="first" contentId={contentId}>
                 <IonHeader>
                     <IonToolbar color="primary">
                         <IonTitle>Меню</IonTitle>
@@ -17,10 +27,16 @@ export const SideMenu:React.FC<SideMenuProps> = (props) => {
                 <IonContent>
                     <IonList>
                         <IonItem>
-                            <Link to="/home">Мой профиль</Link>
+                            <Link 
+                                to="/home"
+                                onClick={(event) => { handleChangeRoute(event, "/home") }}
+                            >Мой профиль</Link>
                         </IonItem>
                         <IonItem>
-                            <Link to="/about">Настройки</Link>
+                            <Link 
+                                to="/about"
+                                onClick={(event) => { handleChangeRoute(event, "/about") }}
+                            >Настройки</Link>
                         </IonItem>
                     </IonList>
                 </IonContent>
