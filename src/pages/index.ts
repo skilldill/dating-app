@@ -1,5 +1,7 @@
 import { Profile } from "./Profile";
+import { Partners } from "./Partners";
 
 export {
-    Profile
+    Profile,
+    Partners
 }

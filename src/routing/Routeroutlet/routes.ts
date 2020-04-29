@@ -1,9 +1,9 @@
-import { RouteProps } from "react-router-dom";
-import { Profile } from "../../pages"
+import { Profile, Partners } from "../../pages"
+import { RouteNamedProps } from "../routes.model";
 
-export const routes: RouteProps[] = [
-    { path: "/profile", component: Profile },
-    { path: "/chats" },
-    { path: "/calendar" },
-    { path: "/find_partners" },
+export const routes: RouteNamedProps[] = [
+    { path: "/profile", component: Profile, name: "Профиль" },
+    { path: "/partners", component: Partners, name: "Коллеги" },
+    { path: "/chats", name: "Сообщения" },
+    { path: "/calendar", name: "Настройки" },
 ]

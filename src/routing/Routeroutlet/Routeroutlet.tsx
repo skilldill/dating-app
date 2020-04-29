@@ -8,7 +8,7 @@ import { routes } from "./routes";
 export const Routeroutlet = () => {
   return (
     <Router>
-      <SideMenu />
+      <SideMenu routes={routes} />
       <Switch>
         {routes.map((route:RouteProps, i: number) => 
           <Route key={i} {...route} />

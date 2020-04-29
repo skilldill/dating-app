@@ -1,1 +1,5 @@
-export { Routeroutlet } from "./Routeroutlet";
+import { Routeroutlet } from "./Routeroutlet";
+
+export {
+    Routeroutlet
+}
