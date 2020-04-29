@@ -6,8 +6,6 @@ import { SideMenu } from "../../core/components";
 import { Start } from "../../pages";
 
 export const Routeroutlet = () => {
-  const routerId = "IonReactRouter";
-
   return (
     <Router>
       <SideMenu />
