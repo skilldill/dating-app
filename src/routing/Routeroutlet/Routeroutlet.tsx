@@ -1,7 +1,6 @@
 import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
-import { IonRouterOutlet } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
+import { Switch } from "react-router";
+import { HashRouter as Router, Redirect, Route } from 'react-router-dom';
 
 import { SideMenu } from "../../core/components";
 import { Start } from "../../pages";
@@ -10,14 +9,13 @@ export const Routeroutlet = () => {
   const routerId = "IonReactRouter";
 
   return (
-    <>
+    <Router>
       <SideMenu />
-      <IonReactRouter>
-        <IonRouterOutlet>
-          <Route path="/home" component={Start} exact={true} />
-          <Route exact path="/" render={() => <Redirect to="/home" />} />
-        </IonRouterOutlet>
-      </IonReactRouter>
-    </>
+      <Switch>
+        <Route path="/home" component={Start} exact={true} />
+        <Route exact path="/" render={() => <Redirect to="/home" />} />
+        <Route exact path="/about" component={() => <div>about</div>} />
+      </Switch>
+    </Router>
   )
 }

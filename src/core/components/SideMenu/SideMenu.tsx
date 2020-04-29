@@ -1,6 +1,6 @@
 import React from "react";
-import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonRouterOutlet } from "@ionic/react"
-
+import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem } from "@ionic/react"
+import { Link } from "react-router-dom";
 import { SideMenuProps } from "./SideMenu.model";
 
 export const SideMenu:React.FC<SideMenuProps> = (props) => {
@@ -16,10 +16,12 @@ export const SideMenu:React.FC<SideMenuProps> = (props) => {
                 </IonHeader>
                 <IonContent>
                     <IonList>
-                        <IonItem>Мой профиль</IonItem>
-                        <IonItem>Выбор</IonItem>
-                        <IonItem>Сообщения</IonItem>
-                        <IonItem>Настройки</IonItem>
+                        <IonItem>
+                            <Link to="/home">Мой профиль</Link>
+                        </IonItem>
+                        <IonItem>
+                            <Link to="/about">Настройки</Link>
+                        </IonItem>
                     </IonList>
                 </IonContent>
             </IonMenu>
