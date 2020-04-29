@@ -1,7 +1,7 @@
 import { IonPage } from '@ionic/react';
 import React from 'react';
 
-export const Start: React.FC = () => {
+export const Profile: React.FC = () => {
   return (
     <IonPage>
       START

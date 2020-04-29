@@ -1,18 +1,18 @@
 import React from 'react';
 import { Switch } from "react-router";
-import { HashRouter as Router, Redirect, Route } from 'react-router-dom';
+import { HashRouter as Router, Route, RouteProps } from 'react-router-dom';
 
 import { SideMenu } from "../../core/components";
-import { Start } from "../../pages";
+import { routes } from "./routes";
 
 export const Routeroutlet = () => {
   return (
     <Router>
       <SideMenu />
       <Switch>
-        <Route path="/home" component={Start} exact={true} />
-        <Route exact path="/" render={() => <Redirect to="/home" />} />
-        <Route exact path="/about" component={() => <div>about</div>} />
+        {routes.map((route:RouteProps, i: number) => 
+          <Route key={i} {...route} />
+        )}
       </Switch>
     </Router>
   )

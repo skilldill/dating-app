@@ -1,5 +1,5 @@
-import { Start } from "./Start";
+import { Profile } from "./Profile";
 
 export {
-    Start
+    Profile
 }
