@@ -22,7 +22,7 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
 /* Theme variables */
-import './theme/variables.css';
+// import './theme/variables.scss';
 
 export const App: React.FC = () => (
   <IonApp>
@@ -31,5 +31,3 @@ export const App: React.FC = () => (
     </Provider>
   </IonApp>
 );
-
-// start 15:33

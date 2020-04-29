@@ -24,6 +24,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
+    "redux-actions": "^2.6.5",
     "typescript": "3.8.3"
   },
   "scripts": {
@@ -49,6 +50,7 @@
   },
   "description": "An Ionic project",
   "devDependencies": {
+    "@types/redux-actions": "^2.6.1",
     "redux-devtools-extension": "^2.13.8",
     "sass-node": "^4.11.2"
   }
