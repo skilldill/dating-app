@@ -3,8 +3,8 @@ import { ProfileActionsTypes } from "./profile.actions";
 import { Profile } from "../../shared/models";
 
 const initialState: Profile = {
-    name: "Harry",
-    surname: "Potter",
+    name: "Гарри",
+    surname: "Поттер",
     age: 19,
     phone: "989831923",
     avatar: "https://24smi.org/public/media/celebrity/2020/01/14/aebodxrltzjo-deniel-redkliff.png",

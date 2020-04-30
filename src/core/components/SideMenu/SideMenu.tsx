@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 
 import { RouteNamedProps } from "../../../routing/routes.model";
 import { SideMenuProps } from "./SideMenu.model";
+import { MenuProfile } from "../MenuProfile";
 
 interface MenuItemProps {
     name: string,
@@ -33,7 +34,7 @@ export const SideMenu: React.FC<SideMenuProps> = (props) => {
             <IonMenu ref={menuRef} side="start" menuId="first" contentId={contentId}>
                 <IonHeader>
                     <IonToolbar color="primary">
-                        <IonTitle>Меню</IonTitle>
+                        <MenuProfile />
                     </IonToolbar>
                 </IonHeader>
                 <IonContent>
