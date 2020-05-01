@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Switch } from "react-router";
+import { Switch, Redirect } from "react-router";
 import { HashRouter as Router, Route, RouteProps } from 'react-router-dom';
 
 import { SideMenu, Navbar } from "../../core/components";
@@ -21,6 +21,7 @@ export const Routeroutlet = () => {
         closeMenu={() => { setIsOpenMenu(false) }}
       />
       <Switch>
+        <Route path="/" render={() => <Redirect to="/profile" />} />
         {routes.map((route:RouteProps, i: number) => 
           <Route key={i} {...route} />
         )}

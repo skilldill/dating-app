@@ -1,0 +1,1 @@
+export const MIN_DIFF_TOUCH = 60;

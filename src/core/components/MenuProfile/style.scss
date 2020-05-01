@@ -1,0 +1,33 @@
+@import "../../../theme/variables.scss";
+
+.menu-profile {
+    padding-top: 20px;
+    padding-left: 80px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid $light-gray-border;
+
+    &-avatar {
+        overflow: hidden;
+        height: 80px;
+        width: 80px;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: black;
+
+        img {
+            height: 80px;
+        }
+    }
+
+    &-data {
+        h1 {
+            font-size: 20px;
+            margin: 0;
+            margin-left: 20px;
+        }
+    }
+}

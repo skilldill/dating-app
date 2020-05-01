@@ -9,9 +9,10 @@
     position: fixed;
     transition: all .3s;
     left: -500px;
+    box-shadow: 5px 0 20px #85858548;
 
     &-items {
-        padding-left: 20px;
+        padding-left: 80px;
     }
 
     &-item {
@@ -23,5 +24,5 @@
 }
 
 .side-menu-open {
-    left: 0px;
+    left: -60px;
 }
