@@ -1,5 +1,7 @@
 import { RouteNamedProps } from "../../../routing/routes.model";
 
 export interface SideMenuProps {
-    routes: RouteNamedProps[]
+    routes: RouteNamedProps[],
+    isOpen: boolean,
+    closeMenu: () => void
 }

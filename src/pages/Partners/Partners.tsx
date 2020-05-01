@@ -1,10 +1,9 @@
 import React from "react";
-import { IonPage } from "@ionic/react";
 
 export const Partners = () => {
     return (
-        <IonPage>
+        <div className="partners">
             Partners
-        </IonPage>
+        </div>
     )
 }

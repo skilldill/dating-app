@@ -1,0 +1,27 @@
+@import "../../../theme/variables.scss";
+
+.side-menu {
+    background-color: white;
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    color: black;
+    position: fixed;
+    transition: all .3s;
+    left: -500px;
+
+    &-items {
+        padding-left: 20px;
+    }
+
+    &-item {
+        list-style-type: none;
+        font-size: 20px;
+        padding: 15px 0;
+        border-bottom: 1px solid $light-gray-border;
+    }
+}
+
+.side-menu-open {
+    left: 0px;
+}

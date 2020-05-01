@@ -1,60 +1,59 @@
-import React, { useRef } from "react";
-import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem } from "@ionic/react"
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import cn from "classnames";
 
+import "./style.scss";
 import { RouteNamedProps } from "../../../routing/routes.model";
 import { SideMenuProps } from "./SideMenu.model";
 import { MenuProfile } from "../MenuProfile";
 
-interface MenuItemProps {
+type MenuItemProps = {
     name: string,
-    onClick: () => void
+    onClick: () => void,
 }
 
 const MenuItem: React.FC<MenuItemProps> = (props) => (
-    <IonItem onClick={props.onClick}>
+    <li className="side-menu-item" onClick={props.onClick}>
         {props.name}
-    </IonItem>
+    </li>
 )
 
 export const SideMenu: React.FC<SideMenuProps> = (props) => {
-    const { routes } = props;
-    const contentId = "SideMenu";
+    const { routes, closeMenu, isOpen } = props;
     const history = useHistory();
-    // TODO: Необходимо any заменить на HTMLIonMenuElement
-    const menuRef = useRef<any>(null);
+
+    const classes = cn({
+        "side-menu": true,
+        "side-menu-open": isOpen
+    })
 
     const handleChangeRoute = (to: string) => {
         history.push(to);
-        menuRef.current?.close()
+        closeMenu();
     }
 
-    return (
+    const renderMenuItems = () => (
         <>
-            <IonMenu ref={menuRef} side="start" menuId="first" contentId={contentId}>
-                <IonHeader>
-                    <IonToolbar color="primary">
-                        <MenuProfile />
-                    </IonToolbar>
-                </IonHeader>
-                <IonContent>
-                    <IonList>
-                        { routes.map(
-                            (route: RouteNamedProps, i: number) => (
-                                <MenuItem 
-                                    key={i}
-                                    name={route.name}
-                                    onClick={() => handleChangeRoute(`${route.path}`)}
-                                />
-                            ))
-                        }
-                        <IonItem>
-                            Выйти
-                        </IonItem>
-                    </IonList>
-                </IonContent>
-            </IonMenu>
-            <div id={contentId}></div>
+            {
+                routes.map((route: RouteNamedProps, i: number) => 
+                    <MenuItem 
+                        key={i}
+                        name={route.name}
+                        onClick={() => handleChangeRoute(`${route.path}`)}
+                    />
+                )
+            }
         </>
+    )
+
+    return (
+        <div className={classes}>
+            <ul className="side-menu-items">
+                { renderMenuItems() }
+                <li className="side-menu-item">
+                    Выход
+                </li>
+            </ul>
+        </div>
     )
 }
