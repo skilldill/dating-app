@@ -1,0 +1,2 @@
+.profile-avatar{position:relative;height:200px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,.13);background-position:50%}.profile-avatar .inner{position:absolute;display:flex;justify-content:center;top:0;bottom:0;left:0;right:0;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}.profile-avatar .inner img{height:200px}.profile-content{padding-left:10px;padding-right:10px}.content{padding:50px 0 0;height:calc(100vh - 50px);background-color:#fff}
+/*# sourceMappingURL=main.0c207344.chunk.css.map */
