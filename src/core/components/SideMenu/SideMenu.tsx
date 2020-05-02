@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import cn from "classnames";
 
 import "./style.scss";
-import { MIN_DIFF_TOUCH } from "./constants";
+import { MIN_DIFF_TOUCH } from "../../../shared/constants";
 import { RouteNamedProps } from "../../../routing/routes.model";
 import { SideMenuProps } from "./SideMenu.model";
 import { MenuProfile } from "../MenuProfile";
@@ -44,7 +44,7 @@ export const SideMenu: React.FC<SideMenuProps> = (props) => {
         setStartTouch(event.touches[0].clientX);
     }
     
-    const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    const handleTouchEnd = () => {
         if (!!startTouch && !!endTouch) {
             const touchDiff = startTouch - endTouch;
             if (touchDiff >= MIN_DIFF_TOUCH) {
