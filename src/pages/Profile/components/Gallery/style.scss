@@ -1,0 +1,19 @@
+.gallery {
+    &-photo {
+        flex: 1;
+        width: 120px;
+        height: 120px;
+    }
+    
+    &-header {
+
+        h3 {
+            margin: 0;
+        }
+    }
+
+    &-body {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
