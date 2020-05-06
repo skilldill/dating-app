@@ -1,28 +1,19 @@
 .profile {
     &-avatar {
-        position: relative;
-        height: 200px;
+        display: flex;
+        justify-content: center;
         overflow: hidden;
-        box-shadow: 0 5px 15px #00000021;
-        background-position: center;
-        
-        .inner {
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            backdrop-filter: blur(20px);
-            img {
-                height: 200px;
-            }
+        width: 180px;
+        height: 180px;
+        border-radius: 100%;
+
+        img {
+            height: 270px;
         }
     }
 
-    &-content {
-        padding-left: 10px;
-        padding-right: 10px;
+    &-description {
+        display: flex;
+        justify-content: center;
     }
 }

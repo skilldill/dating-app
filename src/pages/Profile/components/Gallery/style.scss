@@ -1,12 +1,23 @@
+@import "../../../../theme/variables.scss";
+
 .gallery {
     &-photo {
+        display: flex;
         flex: 1;
         width: 120px;
         height: 120px;
+        overflow: hidden;
+        justify-content: center;
+        margin: 2px;
+        background-color: $light-gray-bg;
+
+        img {
+            max-height: 120px;
+            margin: auto;
+        }
     }
     
     &-header {
-
         h3 {
             margin: 0;
         }

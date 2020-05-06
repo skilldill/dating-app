@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Redirect } from "react-router";
 import { HashRouter as Router, Route, RouteProps, Switch } from 'react-router-dom';
 
+import "./style.scss";
 import { MIN_DIFF_TOUCH } from "../../shared/constants";
 import { SideMenu, Navbar } from "../../core/components";
 import { routes } from "./routes";
@@ -51,7 +52,7 @@ export const Routeroutlet = () => {
         closeMenu={() => { setIsOpenMenu(false) }}
       />
       <div
-        style={{height: "100vh"}}
+        className="routes-holder"
         onClick={handleClick}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}

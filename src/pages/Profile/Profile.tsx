@@ -10,6 +10,11 @@ export const Profile: React.FC = () => {
 
   return (
     <div className="profile">
+      <div className="profile-description">
+        <div className="profile-avatar">
+          <img src={profile.avatar} alt={profile.name} />
+        </div>
+      </div>
       <Gallery />
     </div>
   );
