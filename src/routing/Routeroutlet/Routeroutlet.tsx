@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Switch, Redirect } from "react-router";
-import { HashRouter as Router, Route, RouteProps } from 'react-router-dom';
+import { Redirect } from "react-router";
+import { HashRouter as Router, Route, RouteProps, Switch } from 'react-router-dom';
 
 import { MIN_DIFF_TOUCH } from "../../shared/constants";
 import { SideMenu, Navbar } from "../../core/components";
@@ -57,12 +57,12 @@ export const Routeroutlet = () => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <Switch>
+        <div className="routes">
           <Route path="/" render={() => <Redirect to="/profile" />} />
           {routes.map((route:RouteProps, i: number) => 
             <Route key={i} {...route} />
           )}
-        </Switch>
+        </div>
       </div>
     </Router>
   )
