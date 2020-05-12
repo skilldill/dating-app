@@ -1,5 +1,5 @@
 .partners-list {
-    padding-top: 80px;
+    padding-top: 30px;
 
     &-controls {
         margin-top: 60px;
@@ -25,6 +25,18 @@
         .btn-middle {
             width: 100px;
             height: 100px;
+        }
+
+        .btn-like {
+            background-color: rgb(112, 197, 112);
+        }
+
+        .btn-mark {
+            background-color: #f1d74e;
+        }
+
+        .btn-close {
+            background-color: rgb(247, 95, 95);
         }
     }
 }

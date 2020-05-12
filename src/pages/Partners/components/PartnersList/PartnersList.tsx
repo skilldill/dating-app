@@ -20,13 +20,13 @@ export const PartnersList = () => {
                     <>
                         <PartnerCard partner={partners[0]} />
                         <div className="partners-list-controls">
-                            <button className="btn btn-circle">
+                            <button className="btn btn-circle btn-like">
                                 <img src={heartOutline} alt="heart"/>
                             </button>
-                            <button className="btn btn-circle btn-middle">
+                            <button className="btn btn-circle btn-middle btn-mark">
                                 <img src={starOutline} alt="cross"/>
                             </button>
-                            <button className="btn btn-circle">
+                            <button className="btn btn-circle btn-close">
                                 <img src={closeOutline} alt="star"/>
                             </button>
                         </div>
