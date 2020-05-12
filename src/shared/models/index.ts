@@ -19,6 +19,7 @@ export type Partner = {
     age: number,
     avatar: any,
     gender: "male" | "female",
+    state: "like" | "dislike" | "skip" | null,
     gallery?: any[],
     surname?: string,
     phone?: string,

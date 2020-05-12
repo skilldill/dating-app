@@ -3,10 +3,12 @@ import { PartnersActionsTypes } from "./partners.actions";
 import { Partner } from "../../shared/models";
 
 export interface PartnersState {
-    partners: Partner[]
+    partners: Partner[],
+    partnersLiked: Partner[]
 }
 
 const initialState: PartnersState = {
+    partnersLiked: [],
     partners: [
         { 
             id: "1", 
@@ -18,7 +20,8 @@ const initialState: PartnersState = {
                 "https://deita.ru/media/images/______UsNbDXM.2e16d0ba.fill-950x690-c100.jpg",
                 "https://m.spletnik.ru/img/2018/12/elizaveta/20181210-ruper3.jpg",
                 "https://medialeaks.ru/wp-content/uploads/2018/12/Rupert-Grint-ABC-Murders-96a6a3a-e1545946862582.jpg"
-            ]
+            ],
+            state: null
         },
         {
             id: "2", 
@@ -29,7 +32,8 @@ const initialState: PartnersState = {
             gallery: [
                 "https://www.film.ru/sites/default/files/persones/_imported/0507535.jpg",
                 "https://uznayvse.ru/images/content/2018/5/uzn_15268519062.jpg"
-            ]
+            ],
+            state: null
         },
         {
             id: "3", 
@@ -43,7 +47,8 @@ const initialState: PartnersState = {
                 "https://s5.cdn.teleprogramma.pro/wp-content/uploads/2019/05/780fea3867ecfd422304a3d1cbc366bc.jpg",
                 "https://i.pinimg.com/736x/8e/e4/6b/8ee46b0035f4bb9be38801d13551a029.jpg",
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQaoXNi5rMfIAjG_aURo8HMhwJ6VdMMe-1x4-xRH4h_SJBx7ZUT&usqp=CAU"
-            ]
+            ],
+            state: null
         },
         {
             id: "4", 
@@ -51,7 +56,8 @@ const initialState: PartnersState = {
             age: 18,
             gender: "female",
             avatar: "",
-            gallery: []
+            gallery: [],
+            state: null
         },
         {
             id: "5", 
@@ -64,7 +70,8 @@ const initialState: PartnersState = {
                 "https://24smi.org/public/media/celebrity/2019/06/05/6bo6qztxbhyk-bonni-rajt.jpg",
                 "https://biografii.net/wp-content/uploads/2018/12/1451296286-bonni-rajt.jpg",
                 "https://biografii.net/wp-content/uploads/2018/12/0DAzyT0B.jpg"
-            ]
+            ],
+            state: null
         },
         {
             id: "6", 
@@ -72,6 +79,7 @@ const initialState: PartnersState = {
             age: 26,
             gender: "male",
             avatar: "https://www.film.ru/sites/default/files/persones/_imported/0962359.jpg",
+            state: null
         },
         {
             id: "7", 
@@ -79,6 +87,7 @@ const initialState: PartnersState = {
             age: 26,
             gender: "male",
             avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSHwpLqOMy0w6zHdJhY8AZCMM6gHAvcZaqeXI8IcZqmgxXeYZqS&usqp=CAU",
+            state: null
         },
         {
             id: "8", 
@@ -86,17 +95,32 @@ const initialState: PartnersState = {
             age: 22,
             gender: "female",
             avatar: "https://vignette.wikia.nocookie.net/harrypotter/images/e/e1/Cho.jpg/revision/latest?cb=20111031161916&path-prefix=ru",
+            state: null
         }
     ]
 }
 
 const like = (state: PartnersState, action: Action<string>) => {
-    return { ...state }
+    const currentPartner = state.partners.shift();
+    if (currentPartner) {
+        return { 
+            ...state,
+            partners: [...state.partners], 
+            partnersLiked: [...state.partnersLiked, currentPartner] 
+        };
+    }
+
+    return { ...state };
 }
 const dislike = (state: PartnersState, action: Action<string>) => {
     return { ...state }
 }
 const skip = (state: PartnersState, action: Action<string>) => {
+    return { ...state }
+}
+
+const mark = (state: PartnersState, action: Action<string>) => {
+    
     return { ...state }
 }
 
