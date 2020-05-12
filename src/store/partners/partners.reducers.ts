@@ -4,11 +4,13 @@ import { Partner } from "../../shared/models";
 
 export interface PartnersState {
     partners: Partner[],
-    partnersLiked: Partner[]
+    partnersLiked: Partner[],
+    partnersBlocked: Partner[]
 }
 
 const initialState: PartnersState = {
     partnersLiked: [],
+    partnersBlocked: [],
     partners: [
         { 
             id: "1", 
@@ -113,7 +115,16 @@ const like = (state: PartnersState, action: Action<string>) => {
     return { ...state };
 }
 const dislike = (state: PartnersState, action: Action<string>) => {
-    return { ...state }
+    const currentPartner = state.partners.shift();
+    if (currentPartner) {
+        return { 
+            ...state,
+            partners: [...state.partners], 
+            partnersBlocked: [...state.partnersBlocked, currentPartner]
+        };
+    }
+
+    return { ...state };
 }
 const skip = (state: PartnersState, action: Action<string>) => {
     return { ...state }
