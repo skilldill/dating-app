@@ -1,0 +1,30 @@
+.partners-list {
+    padding-top: 80px;
+
+    &-controls {
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .btn {
+            outline: none;
+            margin: 0 20px 0 20px;
+
+            img {
+                width: 40px;
+            }
+        }
+        
+        .btn-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 100%;
+        }
+
+        .btn-middle {
+            width: 100px;
+            height: 100px;
+        }
+    }
+}
