@@ -10,9 +10,11 @@
         .btn {
             outline: none;
             margin: 0 20px 0 20px;
+            position: relative;
 
             img {
-                width: 40px;
+                position: absolute;
+                width: 30px;
             }
         }
         
@@ -20,6 +22,9 @@
             width: 80px;
             height: 80px;
             border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .btn-middle {

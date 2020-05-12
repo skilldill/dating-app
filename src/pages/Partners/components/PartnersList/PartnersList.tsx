@@ -30,21 +30,21 @@ export const PartnersList = () => {
                     <>
                         <PartnerCard partner={partners[0]} />
                         <div className="partners-list-controls">
-                            <button 
+                            <div 
                                 className="btn btn-circle btn-like"
                                 onClick={handleLike}
                             >
                                 <img src={heartOutline} alt="heart"/>
-                            </button>
-                            <button className="btn btn-circle btn-middle btn-mark">
+                            </div>
+                            <div className="btn btn-circle btn-middle btn-mark">
                                 <img src={starOutline} alt="cross"/>
-                            </button>
-                            <button 
+                            </div>
+                            <div 
                                 className="btn btn-circle btn-close"
                                 onClick={handleDislike}
                             >
                                 <img src={closeOutline} alt="star"/>
-                            </button>
+                            </div>
                         </div>
                     </>
                 ) : "Пусто"
