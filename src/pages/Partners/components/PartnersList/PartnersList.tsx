@@ -5,9 +5,19 @@ import "./style.scss";
 import { PartnerCard } from "../PartnerCard";
 import heartOutline from "../../../../assets/icons/heart-outline.svg";
 import closeOutline from "../../../../assets/icons/close-circle-outline.svg";
-import starOutline from "../../../../assets/icons/star-outline.svg";
+import syncOutline from "../../../../assets/icons/sync-outline.svg";
 import { Partner } from "shared/models";
 import { PartnersActions } from "../../../../store/partners/partners.actions";
+
+interface Clickable {
+    onClick: () => void;
+}
+
+const Empty:React.FC<Clickable> = (props) => (
+    <div className="empty" onClick={props.onClick}>
+        <img src={syncOutline} alt="sync"/>
+    </div>
+)
 
 export const PartnersList = () => {
     const partners = useSelector<any, Partner[]>((state: any) => state.partners.partners);
@@ -21,6 +31,10 @@ export const PartnersList = () => {
 
     const handleDislike = () => {
         dispatch(PartnersActions.dislike(partner.id));
+    }
+
+    const handleDropAll = () => {
+        dispatch(PartnersActions.dropAll());
     }
 
     return (
@@ -45,7 +59,7 @@ export const PartnersList = () => {
                             </div>
                         </div>
                     </>
-                ) : "Пусто"
+                ) : <Empty onClick={handleDropAll} />
             }
         </div>
     )

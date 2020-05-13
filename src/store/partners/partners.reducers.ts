@@ -1,5 +1,5 @@
 import { handleActions, Action } from "redux-actions";
-import { PartnersActionsTypes } from "./partners.actions";
+import { PartnersActionsTypes, PartnersActions } from "./partners.actions";
 import { Partner } from "../../shared/models";
 
 export interface PartnersState {
@@ -130,15 +130,15 @@ const skip = (state: PartnersState, action: Action<string>) => {
     return { ...state }
 }
 
-const mark = (state: PartnersState, action: Action<string>) => {
-    
-    return { ...state }
+const dropAll = (state: PartnersState, action: Action<string>) => {
+    return { ...initialState }
 }
 
 const mapReducers = {
     [PartnersActionsTypes.LIKE]: like,
     [PartnersActionsTypes.DISLIKE]: dislike,
-    [PartnersActionsTypes.SKIP]: skip
+    [PartnersActionsTypes.SKIP]: skip,
+    [PartnersActionsTypes.DROP_ALL]: dropAll
 }
 
 export const partnersReducer = handleActions(mapReducers, initialState);

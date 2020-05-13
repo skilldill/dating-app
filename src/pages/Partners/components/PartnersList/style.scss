@@ -45,3 +45,13 @@
         }
     }
 }
+
+.empty {
+    display: flex;
+    justify-content: center;
+    margin-top: 190px;
+
+    img {
+        width: 50px;
+    }
+}

@@ -3,7 +3,8 @@ import { createAction } from "redux-actions";
 export enum PartnersActionsTypes {
     LIKE = "PARTNER.LIKE",
     DISLIKE = "PARTNER.DISLIKE",
-    SKIP = "PARTNER.SKIP"
+    SKIP = "PARTNER.SKIP",
+    DROP_ALL = "PARTNER.DROP_ALL",
 }
 
 export class PartnersActions {
@@ -11,4 +12,5 @@ export class PartnersActions {
     static like = createAction<string>(PartnersActionsTypes.LIKE);
     static dislike = createAction<string>(PartnersActionsTypes.DISLIKE);
     static skip = createAction<string>(PartnersActionsTypes.SKIP);
+    static dropAll = createAction(PartnersActionsTypes.DROP_ALL);
 }
