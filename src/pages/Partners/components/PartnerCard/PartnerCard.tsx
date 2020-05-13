@@ -12,6 +12,7 @@ export const PartnerCard: React.FC<PartnerCardProps> = (props) => {
     const [startTouchX, setStartTouchX] = useState(0);
     const [currentTouchX, setCurrentTouchX] = useState(0);
     const [loaded, setLoaded] = useState(false);
+    const [lockTransition, setLockTransition] = useState(false);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -38,6 +39,10 @@ export const PartnerCard: React.FC<PartnerCardProps> = (props) => {
                     dispatch(PartnersActions.dislike(partner.id));
                 }
             }
+
+            // Lock transition
+            setLockTransition(true);
+            setTimeout(() => setLockTransition(false), 300);
         }
 
         setCurrentTouchX(0);
@@ -58,13 +63,18 @@ export const PartnerCard: React.FC<PartnerCardProps> = (props) => {
         }
     }
 
+    const styleCard: React.CSSProperties = {
+        ...calcTranslateStyle(),
+        transition: lockTransition ? 'all 0.3s' : 'none'
+    }
+
     const handleOnLoadPicture = () => {
         setLoaded(true);
     }
 
     return (
         <div 
-            style={calcTranslateStyle()}
+            style={styleCard}
             className="partner-card"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
