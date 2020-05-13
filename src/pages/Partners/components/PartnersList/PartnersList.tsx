@@ -11,7 +11,8 @@ import { PartnersActions } from "../../../../store/partners/partners.actions";
 
 export const PartnersList = () => {
     const partners = useSelector<any, Partner[]>((state: any) => state.partners.partners);
-    const partner = partners[0];
+    const partnerIndex = partners.length - 1;
+    const partner = partners[partnerIndex];
     const dispatch = useDispatch();
 
     const handleLike = () => {
@@ -28,7 +29,7 @@ export const PartnersList = () => {
                 !!partner ? 
                 (
                     <>
-                        <PartnerCard partner={partners[0]} />
+                        <PartnerCard partner={partners[partnerIndex]} />
                         <div className="partners-list-controls">
                             <div 
                                 className="btn btn-circle btn-like"
