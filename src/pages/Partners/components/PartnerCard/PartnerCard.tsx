@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import "./style.scss";
 import { PartnerCardProps } from "./PartnerCard.model";
-import { MIN_DIFF_SCROLL_PARTNER } from "shared/constants";
+import { MIN_DIFF_SCROLL_PARTNER, ANGLE_COEFF } from "shared/constants";
 import { PartnersActions } from "../../../../store/partners/partners.actions";
 import defaultUser from "../../../../assets/default-user-image.png"
 
@@ -27,14 +27,16 @@ export const PartnerCard: React.FC<PartnerCardProps> = (props) => {
     }
 
     const handleTouchEnd = () => {
-        const diff = currentTouchX - startTouchX
-        const diffAbs = Math.abs(diff);
-
-        if (diffAbs >= MIN_DIFF_SCROLL_PARTNER) {
-            if (diff < 0) {
-                dispatch(PartnersActions.like(partner.id));
-            } else {
-                dispatch(PartnersActions.dislike(partner.id));
+        if (!!currentTouchX && !!startTouchX) {
+            const diff = currentTouchX - startTouchX
+            const diffAbs = Math.abs(diff);
+            
+            if (diffAbs >= MIN_DIFF_SCROLL_PARTNER) {
+                if (diff < 0) {
+                    dispatch(PartnersActions.like(partner.id));
+                } else {
+                    dispatch(PartnersActions.dislike(partner.id));
+                }
             }
         }
 
@@ -45,8 +47,9 @@ export const PartnerCard: React.FC<PartnerCardProps> = (props) => {
     const calcTranslateStyle = (): React.CSSProperties => {
         if (!!currentTouchX && !!startTouchX) {
             const translateLength = currentTouchX - startTouchX;
+            const angle = translateLength * ANGLE_COEFF;
             return {
-                transform: `translate(${translateLength}px)`
+                transform: `translate(${translateLength}px) rotate(${angle}deg)`
             }
         }
 

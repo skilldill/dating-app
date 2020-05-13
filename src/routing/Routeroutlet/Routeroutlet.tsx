@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from "react-redux";
 import { Redirect } from "react-router";
-import { HashRouter as Router, Route, RouteProps, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, RouteProps } from 'react-router-dom';
 
 import "./style.scss";
 import { MIN_DIFF_TOUCH } from "../../shared/constants";
 import { SideMenu, Navbar } from "../../core/components";
 import { routes } from "./routes";
+import { NavbarActions } from "../../store/navbar/navbar.actions"
 
 export const Routeroutlet = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [startTouch, setStartTouch] = useState(0);
   const [endTouch, setEndTouch] = useState(0);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(NavbarActions.changeTitle("Коллеги"))
+  }, [dispatch])
 
   const toggleMenu = () => {
     isOpenMenu ? setIsOpenMenu(false) : setIsOpenMenu(true);
@@ -59,7 +66,7 @@ export const Routeroutlet = () => {
         onTouchEnd={handleTouchEnd}
       >
         <div className="routes">
-          <Route path="/" render={() => <Redirect to="/profile" />} />
+          <Route path="/" render={() => <Redirect to="/partners" />} />
           {routes.map((route:RouteProps, i: number) => 
             <Route key={i} {...route} />
           )}

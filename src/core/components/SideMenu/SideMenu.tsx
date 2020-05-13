@@ -7,6 +7,8 @@ import { MIN_DIFF_TOUCH } from "../../../shared/constants";
 import { RouteNamedProps } from "../../../routing/routes.model";
 import { SideMenuProps } from "./SideMenu.model";
 import { MenuProfile } from "../MenuProfile";
+import { useDispatch } from "react-redux";
+import { NavbarActions } from "store/navbar/navbar.actions";
 
 type MenuItemProps = {
     name: string,
@@ -22,6 +24,7 @@ const MenuItem: React.FC<MenuItemProps> = (props) => (
 export const SideMenu: React.FC<SideMenuProps> = (props) => {
     const [startTouch, setStartTouch] = useState(0);
     const [endTouch, setEndTouch] = useState(0);
+    const dispatch = useDispatch();
 
     const { routes, closeMenu, isOpen } = props;
     const history = useHistory();
@@ -31,8 +34,9 @@ export const SideMenu: React.FC<SideMenuProps> = (props) => {
         "side-menu-open": isOpen
     })
 
-    const handleChangeRoute = (to: string) => {
-        history.push(to);
+    const handleChangeRoute = (route: RouteNamedProps) => {
+        dispatch(NavbarActions.changeTitle(route.name));
+        route.path && history.push(route.path.toString());
         closeMenu();
     }
 
@@ -62,7 +66,7 @@ export const SideMenu: React.FC<SideMenuProps> = (props) => {
                     <MenuItem 
                         key={i}
                         name={route.name}
-                        onClick={() => handleChangeRoute(`${route.path}`)}
+                        onClick={() => handleChangeRoute(route)}
                     />
                 )
             }

@@ -36,9 +36,6 @@ export const PartnersList = () => {
                             >
                                 <img src={heartOutline} alt="heart"/>
                             </div>
-                            <div className="btn btn-circle btn-middle btn-mark">
-                                <img src={starOutline} alt="cross"/>
-                            </div>
                             <div 
                                 className="btn btn-circle btn-close"
                                 onClick={handleDislike}
