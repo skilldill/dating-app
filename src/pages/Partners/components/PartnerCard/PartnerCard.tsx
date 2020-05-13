@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import cn from "classnames";
 
 import "./style.scss";
 import { PartnerCardProps } from "./PartnerCard.model";
@@ -9,15 +10,24 @@ import defaultUser from "../../../../assets/default-user-image.png"
 
 export const PartnerCard: React.FC<PartnerCardProps> = (props) => {
     const { partner } = props;
+    // Для touch событий
     const [startTouchX, setStartTouchX] = useState(0);
     const [currentTouchX, setCurrentTouchX] = useState(0);
+    
+    // Состояние загрузки картинки
     const [loaded, setLoaded] = useState(false);
+
+    // Состояние анимирования во время возвращения карточки в начальнее положение
     const [lockTransition, setLockTransition] = useState(false);
+
+    // Состояние выбора свайпа вправо или влево
+    const [finishLeft, setFinishLeft] = useState(false);
+    const [finishRight, setFinishRight] = useState(false);
+    const [transitionAfterFinish, setTransitionAfterFinish] = useState(false);
+
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        setLoaded(false);
-    }, [partner])
+    useEffect(() => {setLoaded(false)}, [partner])
 
     const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
         setStartTouchX(event.touches[0].clientX);
@@ -27,6 +37,30 @@ export const PartnerCard: React.FC<PartnerCardProps> = (props) => {
         setCurrentTouchX(event.touches[0].clientX);
     }
 
+    const handleLikeSwipe = () => {
+        setFinishLeft(true);
+        setTransitionAfterFinish(true);
+        setTimeout(() => {
+            dispatch(PartnersActions.like(partner.id));
+            setFinishLeft(false);
+        }, 300);
+        setTimeout(() => {
+            setTransitionAfterFinish(false);
+        }, 600)
+    }
+
+    const handleDislikeSwipe = () => {
+        setFinishRight(true);
+        setTransitionAfterFinish(true);
+        setTimeout(() => {
+            dispatch(PartnersActions.dislike(partner.id));
+            setFinishRight(false)
+        }, 300);
+        setTimeout(() => {
+            setTransitionAfterFinish(false);
+        }, 600)
+    }
+
     const handleTouchEnd = () => {
         if (!!currentTouchX && !!startTouchX) {
             const diff = currentTouchX - startTouchX
@@ -34,9 +68,11 @@ export const PartnerCard: React.FC<PartnerCardProps> = (props) => {
             
             if (diffAbs >= MIN_DIFF_SCROLL_PARTNER) {
                 if (diff < 0) {
-                    dispatch(PartnersActions.like(partner.id));
+                    // LIKE
+                    handleLikeSwipe();
                 } else {
-                    dispatch(PartnersActions.dislike(partner.id));
+                    // DISLIKE
+                    handleDislikeSwipe();
                 }
             }
 
@@ -53,6 +89,7 @@ export const PartnerCard: React.FC<PartnerCardProps> = (props) => {
         if (!!currentTouchX && !!startTouchX) {
             const translateLength = currentTouchX - startTouchX;
             const angle = translateLength * ANGLE_COEFF;
+            
             return {
                 transform: `translate(${translateLength}px) rotate(${angle}deg)`
             }
@@ -63,19 +100,30 @@ export const PartnerCard: React.FC<PartnerCardProps> = (props) => {
         }
     }
 
-    const styleCard: React.CSSProperties = {
-        ...calcTranslateStyle(),
-        transition: lockTransition ? 'all 0.3s' : 'none'
+    const styleCard = (): React.CSSProperties => {
+        if (transitionAfterFinish) {
+            return { transition: 'all 0.3s' };
+        }
+        return {
+            ...calcTranslateStyle(),
+            transition: lockTransition ? 'all 0.3s' : 'none'
+        }
     }
 
     const handleOnLoadPicture = () => {
         setLoaded(true);
     }
 
+    const classes = cn({
+        "partner-card": true,
+        "partner-card-swipe-left": finishLeft,
+        "partner-card-swipe-right": finishRight
+    })
+
     return (
         <div 
-            style={styleCard}
-            className="partner-card"
+            style={styleCard()}
+            className={classes}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}

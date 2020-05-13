@@ -4,6 +4,7 @@
     border: 1px solid #eee;
     max-width: 340px;
     border-radius: 25px;
+    opacity: 1;
 
     &-photo {
         border-top-left-radius: 25px;
@@ -21,4 +22,14 @@
     &-description {
         padding: 5px;
     }
+}
+
+.partner-card-swipe-left {
+    transform: translate(-400px) rotate(-45deg);
+    opacity: 0;
+}
+
+.partner-card-swipe-right {
+    transform: translate(400px) rotate(45deg);
+    opacity: 0;
 }
