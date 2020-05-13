@@ -23,6 +23,9 @@ export const PartnerCard: React.FC<PartnerCardProps> = (props) => {
     // Состояние выбора свайпа вправо или влево
     const [finishLeft, setFinishLeft] = useState(false);
     const [finishRight, setFinishRight] = useState(false);
+
+    // Нужно чтобы карточка уже появилась на позиции чтобы показать её плавно
+    const [styleReturn, setStyleReturn] = useState(false);
     const [transitionAfterFinish, setTransitionAfterFinish] = useState(false);
 
     const dispatch = useDispatch();
@@ -37,28 +40,25 @@ export const PartnerCard: React.FC<PartnerCardProps> = (props) => {
         setCurrentTouchX(event.touches[0].clientX);
     }
 
-    const handleLikeSwipe = () => {
-        setFinishLeft(true);
+    const commonSwipe = (side: string) => {
+        side === 'left' ? setFinishLeft(true) : setFinishRight(true);
         setTransitionAfterFinish(true);
         setTimeout(() => {
-            dispatch(PartnersActions.like(partner.id));
-            setFinishLeft(false);
+            side === 'left' ? dispatch(PartnersActions.like(partner.id)) :
+                dispatch(PartnersActions.dislike(partner.id))
+            setStyleReturn(true);
+            side === 'left' ? setFinishLeft(false) : setFinishRight(false);
         }, 300);
-        setTimeout(() => {
-            setTransitionAfterFinish(false);
-        }, 600)
+        setTimeout(() => setStyleReturn(false), 600)
+        setTimeout(() => setTransitionAfterFinish(false), 700)
+    }
+
+    const handleLikeSwipe = () => {
+        commonSwipe('left');
     }
 
     const handleDislikeSwipe = () => {
-        setFinishRight(true);
-        setTransitionAfterFinish(true);
-        setTimeout(() => {
-            dispatch(PartnersActions.dislike(partner.id));
-            setFinishRight(false)
-        }, 300);
-        setTimeout(() => {
-            setTransitionAfterFinish(false);
-        }, 600)
+        commonSwipe('right');
     }
 
     const handleTouchEnd = () => {
@@ -117,7 +117,8 @@ export const PartnerCard: React.FC<PartnerCardProps> = (props) => {
     const classes = cn({
         "partner-card": true,
         "partner-card-swipe-left": finishLeft,
-        "partner-card-swipe-right": finishRight
+        "partner-card-swipe-right": finishRight,
+        "partner-card-return": styleReturn
     })
 
     return (

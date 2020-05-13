@@ -5,6 +5,7 @@
     max-width: 340px;
     border-radius: 25px;
     opacity: 1;
+    transition: all .3s;
 
     &-photo {
         border-top-left-radius: 25px;
@@ -31,5 +32,15 @@
 
 .partner-card-swipe-right {
     transform: translate(400px) rotate(45deg);
+    opacity: 0;
+}
+
+.partner-card-swipe-left {
+    transform: translate(-400px) rotate(-45deg);
+    opacity: 0;
+}
+
+.partner-card-return {
+    transform: translate(0) rotate(0deg);
     opacity: 0;
 }
