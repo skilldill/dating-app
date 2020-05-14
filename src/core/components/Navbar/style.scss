@@ -1,8 +1,9 @@
 .navbar {
     position: fixed;
     display: flex;
-    justify-content: flex-start;
-    padding-left: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 0 20px;
     left: 0;
     right: 0;
     color: #000;

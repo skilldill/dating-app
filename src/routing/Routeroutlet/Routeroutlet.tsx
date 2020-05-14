@@ -28,6 +28,8 @@ export const Routeroutlet = () => {
     if (isOpenMenu) { setIsOpenMenu(false) }
   }
 
+  // Эти методы нужны для того чтобы можно было свайпом вытаскивать меню
+  // Но пока что они отключены
   const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
       setEndTouch(event.touches[0].clientX);
   }
@@ -61,9 +63,6 @@ export const Routeroutlet = () => {
       <div
         className="routes-holder"
         onClick={handleClick}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
       >
         <div className="routes">
           <Route path="/" render={() => <Redirect to="/partners" />} />
