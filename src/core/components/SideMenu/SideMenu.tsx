@@ -35,7 +35,7 @@ export const SideMenu: React.FC<SideMenuProps> = (props) => {
     })
 
     const handleChangeRoute = (route: RouteNamedProps) => {
-        dispatch(NavbarActions.changeTitle(route.name));
+        route.name && dispatch(NavbarActions.changeTitle(route.name));
         route.path && history.push(route.path.toString());
         closeMenu();
     }
@@ -59,19 +59,23 @@ export const SideMenu: React.FC<SideMenuProps> = (props) => {
         setStartTouch(0);
     }
 
-    const renderMenuItems = () => (
-        <>
-            {
-                routes.map((route: RouteNamedProps, i: number) => 
-                    <MenuItem 
-                        key={i}
-                        name={route.name}
-                        onClick={() => handleChangeRoute(route)}
-                    />
-                )
-            }
-        </>
-    )
+    const renderMenuItems = () => {
+        const namedRoutes = routes.filter((route) => !!route.name);
+        
+        return (
+            <>
+                {
+                    namedRoutes.map((route: RouteNamedProps, i: number) => 
+                        <MenuItem 
+                            key={i}
+                            name={route.name ? route.name : ''}
+                            onClick={() => handleChangeRoute(route)}
+                        />
+                    )
+                }
+            </>
+        )
+    }
 
     return (
         <div 

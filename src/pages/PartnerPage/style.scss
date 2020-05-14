@@ -1,0 +1,45 @@
+.partner-page {
+    padding: 10px;
+
+    &-loading {
+        margin-top: 150px;
+        text-align: center;
+    }
+
+    .avatar {
+        width: 100%;
+        height: 300px;
+        text-align: center;
+        overflow: hidden;
+        background-color: rgb(245, 245, 245);
+        border-radius: 25px;
+        box-shadow: 0 0 15px #00000029;
+
+        img {
+            height: 300px;
+        }
+    } 
+
+    .controls {
+        display: flex;
+        padding-top: 20px;
+
+        .btn {
+            padding: 10px 15px;
+            border-radius: 10px;
+            flex: 1;
+        }
+
+        .btn-primary {
+            flex-direction: 1;
+            color: white;
+            font-size: 16px;
+            background-color: #428cff;
+            
+
+            &:nth-child(1) {
+                margin-right: 10px;
+            }
+        }
+    }
+}

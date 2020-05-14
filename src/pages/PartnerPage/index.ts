@@ -1,0 +1,1 @@
+export { PartnerPage } from "./PartnerPage";

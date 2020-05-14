@@ -1,7 +1,8 @@
 import { 
     Profile, 
     Partners, 
-    Matches 
+    Matches,
+    PartnerPage
 } from "../../pages"
 import { RouteNamedProps } from "../routes.model";
 
@@ -11,4 +12,5 @@ export const routes: RouteNamedProps[] = [
     { path: "/chats", name: "Сообщения" },
     { path: "/profile", component: Profile, name: "Профиль" },
     { path: "/settings", name: "Настройки" },
+    { path: "/partner/:id", component: PartnerPage }
 ]
