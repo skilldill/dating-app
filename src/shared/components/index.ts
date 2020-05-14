@@ -1,5 +1,7 @@
 import { Content } from "./Content";
+import { SearchBar } from "./SearchBar";
 
 export {
-    Content
+    Content,
+    SearchBar
 }

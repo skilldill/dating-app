@@ -1,0 +1,26 @@
+.matches-item {
+    display: flex;
+    padding: 5px 0;
+    border-bottom: 1px solid #00000017;
+
+    .avatar {
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        border-radius: 100%;
+        text-align: center;
+        background-color: #cecece;
+        margin-right: 10px;
+
+        img {
+            height: 50px;
+        }
+    }
+
+    .description {
+        h4 {
+            font-size: 15px;
+            font-weight: 500;
+        }
+    }
+}

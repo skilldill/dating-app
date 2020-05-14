@@ -1,0 +1,26 @@
+@import "../../../theme/variables.scss";
+
+.search-bar-block {
+    padding: 0 10px;
+
+    .search-bar {
+        display: flex;
+        align-items: center;
+        padding: 5px 10px;
+        background-color: $gray-input-bg;
+        border-radius: 10px;
+    
+        img {
+            height: 15px;
+            margin-right: 10px;
+        }
+    
+        input {
+            border: none;
+            outline: none;
+            background-color: $gray-input-bg;
+            
+        }
+    }
+}
+
