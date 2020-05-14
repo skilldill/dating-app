@@ -23,4 +23,5 @@ export type Partner = {
     gallery?: any[],
     surname?: string,
     phone?: string,
+    selectMe?: boolean
 }
