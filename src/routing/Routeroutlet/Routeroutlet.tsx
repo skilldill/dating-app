@@ -65,7 +65,7 @@ export const Routeroutlet = () => {
         onClick={handleClick}
       >
         <div className="routes">
-          <Route path="/" render={() => <Redirect to="/meetings" />} />
+          <Route path="/" render={() => <Redirect to="/partners" />} />
           {routes.map((route:RouteProps, i: number) => 
             <Route key={i} {...route} />
           )}
