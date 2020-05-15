@@ -25,6 +25,7 @@ export const MatchesItem: React.FC<MatchesItemProps> = (props) => {
             <div className="description">
                 <h4>{`${partner.name} ${partner.surname ? partner.surname : ''}`}</h4>
             </div>
+            
         </div>
     )
 }

@@ -1,0 +1,24 @@
+.modal-bottom {
+    position: fixed;
+    background-color: white;
+    box-shadow: 0 0 15px #00000040;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px 10px 0 10px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    min-height: 300px;
+    transform: translateY(600px);
+}
+
+.modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0000001f;
+    transition: all .3s;
+    opacity: 0;
+}

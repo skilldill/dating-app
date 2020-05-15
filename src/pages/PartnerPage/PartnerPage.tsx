@@ -5,6 +5,7 @@ import { IonSpinner } from "@ionic/react";
 
 import "./style.scss";
 import { Partner } from "../../shared/models";
+import { ModalBottom } from "../../shared/components";
 
 // Mock fetch чтобы продемонстрировать загрузку данных
 const mockFetchPartner = (id: any, partners: Partner[]): Promise<Partner> => {
@@ -18,6 +19,7 @@ export const PartnerPage = () => {
     const [partner, setPartner] = useState<Partner | null>(null);
     const { id } = useParams();
     const partnersLiked = useSelector((state: any) => state.partners.partnersLiked);
+    const [showFormDate, setShowFormDate] = useState(false);
 
     useEffect(() => {
         const fetchPartner = async () => {
@@ -26,6 +28,10 @@ export const PartnerPage = () => {
         }
         fetchPartner();
     }, []);
+
+    const handleOpenFormDate = () => {
+        setShowFormDate(true)
+    }
 
     return (
         <div className="partner-page">
@@ -39,13 +45,22 @@ export const PartnerPage = () => {
                     </div>
                     <div className="controls">
                         <button className="btn btn-primary">Написать</button>
-                        <button className="btn btn-primary">Пригласить</button>
+                        <button 
+                            className="btn btn-primary"
+                            onClick={handleOpenFormDate}
+                        >Пригласить</button>
                     </div>
                 </>
             ) : (
                 <div className="partner-page-loading">
                     <IonSpinner />
                 </div>
+            )}
+            {
+                showFormDate && (
+                <ModalBottom onClose={() => setShowFormDate(false)}>
+                    <div>Hello modal</div>
+                </ModalBottom>
             )}
         </div>
     )
