@@ -58,7 +58,6 @@ export const MittingForm: React.FC<MittingFormProps> = (props) => {
                     type="time" 
                     id="mitting-time-control"
                     onChange={handleChangeTime}
-                    value="12:00"
                 />
             </div>
             <div className="control control-last">
