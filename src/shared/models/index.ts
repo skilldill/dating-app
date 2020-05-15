@@ -1,3 +1,5 @@
+import { MEETING_STATUSES } from "../constants";
+
 export type Settings = {
     theme: "ligth" | "dark",
     notification: boolean
@@ -24,4 +26,13 @@ export type Partner = {
     surname?: string,
     phone?: string,
     selectMe?: boolean
+}
+
+export interface Meeting {
+    id: string,
+    date: string,
+    time: string,
+    partnerId: string,
+    status: MEETING_STATUSES,
+    description?: string
 }

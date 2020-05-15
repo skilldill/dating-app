@@ -1,0 +1,18 @@
+.meeting-item {
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 0 10px #00000061;
+    margin-bottom: 20px;
+    background-color: #8e2ff5;
+    color: white;
+
+    &-header {
+        font-size: 18px;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    p {
+        margin: 8px 0;
+    }
+}
