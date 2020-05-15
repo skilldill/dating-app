@@ -6,6 +6,7 @@ import { IonSpinner } from "@ionic/react";
 import "./style.scss";
 import { Partner } from "../../shared/models";
 import { ModalBottom } from "../../shared/components";
+import { MittingForm } from "./components";
 
 // Mock fetch чтобы продемонстрировать загрузку данных
 const mockFetchPartner = (id: any, partners: Partner[]): Promise<Partner> => {
@@ -59,10 +60,7 @@ export const PartnerPage = () => {
             {
                 showFormDate && (
                 <ModalBottom onClose={() => setShowFormDate(false)}>
-                    <form>
-                        <input type="date" placeholder="Дата" />
-                        <input type="time" placeholder="Время" />
-                    </form>
+                    <MittingForm partnerId={partner ? partner.id : ''} />
                 </ModalBottom>
             )}
         </div>

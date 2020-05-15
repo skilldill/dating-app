@@ -1,3 +1,5 @@
+@import "../../theme/controls";
+
 .partner-page {
     padding: 10px;
 
@@ -24,19 +26,7 @@
         display: flex;
         padding-top: 20px;
 
-        .btn {
-            padding: 10px 15px;
-            border-radius: 10px;
-            flex: 1;
-        }
-
         .btn-primary {
-            flex-direction: 1;
-            color: white;
-            font-size: 16px;
-            background-color: #428cff;
-            
-
             &:nth-child(1) {
                 margin-right: 10px;
             }
