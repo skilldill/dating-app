@@ -1,18 +1,31 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import "./style.scss";
 import { MittingFormProps } from "./MittingForm.model";
+import { Meeting } from "../../../../shared/models";
+import { MeetingsActions } from "../../../../store/meetings/meetings.actions";
+import { MEETING_STATUSES } from "../../../../shared/constants";
 
 export const MittingForm: React.FC<MittingFormProps> = (props) => {
     const { partnerId, onSubmit } = props;
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
+    const dispatch = useDispatch();
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        if (!!date.length && !!time.length) {
+            const meeting: Meeting = {
+                id: `${date}-${time}-${partnerId}`,
+                status: MEETING_STATUSES.CONFIRMED,
+                date,
+                time,
+                partnerId,
+            }
 
-        if (!!onSubmit) {
-
+            dispatch(MeetingsActions.addMeeting(meeting));
+            !!onSubmit && onSubmit();            
         }
     }
 

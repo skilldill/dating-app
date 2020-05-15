@@ -60,7 +60,10 @@ export const PartnerPage = () => {
             {
                 showFormDate && (
                 <ModalBottom onClose={() => setShowFormDate(false)}>
-                    <MittingForm partnerId={partner ? partner.id : ''} />
+                    <MittingForm 
+                        partnerId={partner ? partner.id : ''}
+                        onSubmit={() => setShowFormDate(false)} 
+                    />
                 </ModalBottom>
             )}
         </div>
