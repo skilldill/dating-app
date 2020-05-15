@@ -57,7 +57,6 @@ export const ModalBottom: React.FC<ModalBottomProps> = (props) => {
                     !!onClose && onClose();
                 }, 300);
             }
-
         }
 
         setTouchCurrent(0);

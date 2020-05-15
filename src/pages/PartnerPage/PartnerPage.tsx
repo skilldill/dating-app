@@ -59,7 +59,10 @@ export const PartnerPage = () => {
             {
                 showFormDate && (
                 <ModalBottom onClose={() => setShowFormDate(false)}>
-                    <div>Hello modal</div>
+                    <form>
+                        <input type="date" placeholder="Дата" />
+                        <input type="time" placeholder="Время" />
+                    </form>
                 </ModalBottom>
             )}
         </div>
