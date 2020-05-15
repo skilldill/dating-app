@@ -53,7 +53,9 @@ export const ModalBottom: React.FC<ModalBottomProps> = (props) => {
             if (diff > 0 && diffAbs >= MIN_DIFF_MODAL) {
                 // onClose
                 setClosed(true);
-                !!onClose && onClose();
+                setTimeout(() => {
+                    !!onClose && onClose();
+                }, 300);
             }
 
         }
