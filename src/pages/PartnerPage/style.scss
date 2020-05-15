@@ -26,6 +26,10 @@
         display: flex;
         padding-top: 20px;
 
+        .btn {
+            flex: 1;
+        }
+
         .btn-primary {
             &:nth-child(1) {
                 margin-right: 10px;
