@@ -1,9 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { IonContent } from "@ionic/react";
 
 import "./style.scss";
-import { MeetingsList } from "./components";
+import { MeetingsList, MeetingsFilter } from "./components";
 import { MEETING_STATUSES } from "../../shared/constants";
 import { Meeting } from "../../shared/models";
 
@@ -14,6 +13,7 @@ export const MeetingsPage = () => {
 
     return (
         <div className="meetings-page">
+            <MeetingsFilter />
             <MeetingsList 
                 title="В ожидании"
                 meetings={awaitingMeetings}

@@ -1,0 +1,12 @@
+@import "../../../../theme/variables.scss";
+
+.meetings-filter {
+    .search-bar-block {
+        padding: 0;
+    }
+
+    .toggle-filter {
+        display: flex;
+        background-color: $gray-input-bg;
+    }
+}
