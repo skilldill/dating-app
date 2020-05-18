@@ -52,11 +52,30 @@ const dropAll = (state: PartnersState, action: Action<string>) => {
     }
 }
 
+const sendMessage = (state: PartnersState, action: Action<any>) => {
+    const { id, message } = action.payload;
+    const foundIndex = state.partnersLiked.findIndex((partner) => id === partner.id);
+    const copyLiked = [...state.partnersLiked];
+
+    copyLiked[foundIndex].messages?.push({
+        date: '19-05-2020',
+        text: message,
+        id: `${message}-${foundIndex}`,
+        myself: true
+    })
+
+    return {
+        ...state,
+        partnersLiked: copyLiked
+    }
+}
+
 const mapReducers = {
     [PartnersActionsTypes.LIKE]: like,
     [PartnersActionsTypes.DISLIKE]: dislike,
     [PartnersActionsTypes.SKIP]: skip,
-    [PartnersActionsTypes.DROP_ALL]: dropAll
+    [PartnersActionsTypes.DROP_ALL]: dropAll,
+    [PartnersActionsTypes.SEND_MESSAGE]: sendMessage
 }
 
 export const partnersReducer = handleActions(mapReducers, initialState);

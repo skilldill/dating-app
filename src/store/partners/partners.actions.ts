@@ -5,6 +5,7 @@ export enum PartnersActionsTypes {
     DISLIKE = "PARTNER.DISLIKE",
     SKIP = "PARTNER.SKIP",
     DROP_ALL = "PARTNER.DROP_ALL",
+    SEND_MESSAGE = "PARTNER.SEND_MESSAGE"
 }
 
 export class PartnersActions {
@@ -13,4 +14,5 @@ export class PartnersActions {
     static dislike = createAction<string>(PartnersActionsTypes.DISLIKE);
     static skip = createAction<string>(PartnersActionsTypes.SKIP);
     static dropAll = createAction(PartnersActionsTypes.DROP_ALL);
+    static sendMessage = createAction(PartnersActionsTypes.SEND_MESSAGE);
 }

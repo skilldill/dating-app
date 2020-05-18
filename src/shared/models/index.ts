@@ -22,6 +22,7 @@ export type Partner = {
     avatar: any,
     gender: "male" | "female",
     state: "like" | "dislike" | "skip" | null,
+    messages?: Message[],
     gallery?: any[],
     surname?: string,
     phone?: string,
@@ -35,4 +36,11 @@ export interface Meeting {
     partnerId: string,
     status: MEETING_STATUSES,
     description?: string
+}
+
+export interface Message {
+    id: string,
+    date: string,
+    text: string,
+    myself?: boolean
 }
