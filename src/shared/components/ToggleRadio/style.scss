@@ -10,12 +10,13 @@
 
     &-item {
         display: block;
-        padding: 3px 0px;
+        padding: 5px 0px;
         color: black;
         border-radius: 8px;
         width: 100px;
         text-align: center;
         transition: background .3s;
+        font-size: 14px;
     }
 
     &-item-active {
