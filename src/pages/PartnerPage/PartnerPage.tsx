@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { IonSpinner } from "@ionic/react";
 
@@ -17,6 +17,7 @@ const mockFetchPartner = (id: any, partners: Partner[]): Promise<Partner> => {
 }
 
 export const PartnerPage = () => {
+    const history = useHistory();
     const [partner, setPartner] = useState<Partner | null>(null);
     const { id } = useParams();
     const partnersLiked = useSelector((state: any) => state.partners.partnersLiked);
@@ -34,6 +35,10 @@ export const PartnerPage = () => {
         setShowFormDate(true)
     }
 
+    const openChat = () => {
+        partner && history.push(`/chat/${partner.id}`);
+    }
+
     return (
         <div className="partner-page">
             {partner ? (
@@ -45,7 +50,10 @@ export const PartnerPage = () => {
                         <h3>{partner.name}</h3>
                     </div>
                     <div className="controls">
-                        <button className="btn btn-primary">Написать</button>
+                        <button 
+                            className="btn btn-primary"
+                            onClick={openChat}
+                        >Написать</button>
                         <button 
                             className="btn btn-primary"
                             onClick={handleOpenFormDate}

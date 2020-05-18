@@ -11,7 +11,7 @@ export interface PartnersState {
 }
 
 const initialState: PartnersState = {
-    partnersLiked: [],//[mockPartners[mockPartners.length - 1]],
+    partnersLiked: [mockPartners[mockPartners.length - 1]],
     partnersBlocked: [],
     partners: [...mockPartners]
 }
