@@ -1,0 +1,63 @@
+.message-form {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #00000038;
+    padding: 0 10px;
+
+    form {
+        display: flex;
+        align-items: center;
+
+        .input-file {
+            width: 30px;
+            height: 30px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 100%;
+
+            label {
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+
+            input[type="file"] {
+                opacity: 0;
+            }
+
+            img {
+                height: 30px;
+            }
+        }
+
+        .input-message {
+            width: 100%;
+
+            input[type="text"] {
+                width: 100%;
+                padding: 10px 0;
+                outline: none;
+                border: none;
+                margin: 0 10px;
+            }
+        }
+
+        .submit {
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                height: 25px;
+            }
+        }
+    }
+}
