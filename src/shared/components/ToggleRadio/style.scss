@@ -1,0 +1,23 @@
+@import "../../../theme/variables.scss";
+
+.toggle-radio {
+    background-color: $gray-input-bg;
+    display: inline-flex;
+    padding: 2px 2px;
+    border-radius: 10px;
+    position: relative;
+
+    &-item {
+        display: block;
+        padding: 3px 0px;
+        color: black;
+        border-radius: 8px;
+        width: 100px;
+        text-align: center;
+        transition: background .3s;
+    }
+
+    &-item-active {
+        background-color: white;
+    }
+}

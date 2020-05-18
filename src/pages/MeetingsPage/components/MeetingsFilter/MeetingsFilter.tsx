@@ -2,8 +2,15 @@ import React, { useState } from "react";
 
 import "./style.scss";
 import { MeetingsFilterProps } from "./MeetingFilter.model";
-import { SearchBar } from "../../../../shared/components";
+import { SearchBar } from "shared/components";
 import { MEETING_STATUSES } from "shared/constants";
+import { ToggleRadio } from "shared/components";
+
+const FilterRadioValues = [
+    { name: "Все", value: null },
+    { name: "В ожид.", value: MEETING_STATUSES.AWAITING },
+    { name: "Подтв.", value: MEETING_STATUSES.CONFIRMED }
+]
 
 export const MeetingsFilter: React.FC<MeetingsFilterProps> = (props) => {
     const { onSearch, onChangeStatuses } = props;
@@ -21,10 +28,11 @@ export const MeetingsFilter: React.FC<MeetingsFilterProps> = (props) => {
     return (
         <div className="meetings-filter">
             <SearchBar placeholder="Поиск" onInput={handleSearch} />
-            <div className="toggle-filter">
-                <a href="#">Все</a>
-                <a href="#">В ожид.</a>
-                <a href="#">В ожид.</a>
+            <div className="radio">
+                <ToggleRadio 
+                    values={FilterRadioValues} 
+                    onChange={handleChangeStatuses} 
+                />
             </div>
         </div>
     )
