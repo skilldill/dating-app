@@ -12,7 +12,7 @@
     "static/js/4.244fd381.chunk.js.map": "/dating-app/static/js/4.244fd381.chunk.js.map",
     "static/js/5.7b2b8519.chunk.js": "/dating-app/static/js/5.7b2b8519.chunk.js",
     "static/js/5.7b2b8519.chunk.js.map": "/dating-app/static/js/5.7b2b8519.chunk.js.map",
-    "main.css": "/dating-app/static/css/main.4c2d44f9.chunk.css",
+    "main.css": "/dating-app/static/css/main.cf80edc8.chunk.css",
     "main.js": "/dating-app/static/js/main.a442fee4.chunk.js",
     "main.js.map": "/dating-app/static/js/main.a442fee4.chunk.js.map",
     "runtime-main.js": "/dating-app/static/js/runtime-main.20a3d7cf.js",
@@ -187,10 +187,10 @@
     "static/js/91.a8a64114.chunk.js": "/dating-app/static/js/91.a8a64114.chunk.js",
     "static/js/91.a8a64114.chunk.js.map": "/dating-app/static/js/91.a8a64114.chunk.js.map",
     "index.html": "/dating-app/index.html",
-    "precache-manifest.5514c6866cf874de9dda216a9b463569.js": "/dating-app/precache-manifest.5514c6866cf874de9dda216a9b463569.js",
+    "precache-manifest.937b6d03cc29da4c8520eec3b2354f0c.js": "/dating-app/precache-manifest.937b6d03cc29da4c8520eec3b2354f0c.js",
     "service-worker.js": "/dating-app/service-worker.js",
     "static/css/49.e6bb9c0b.chunk.css.map": "/dating-app/static/css/49.e6bb9c0b.chunk.css.map",
-    "static/css/main.4c2d44f9.chunk.css.map": "/dating-app/static/css/main.4c2d44f9.chunk.css.map",
+    "static/css/main.cf80edc8.chunk.css.map": "/dating-app/static/css/main.cf80edc8.chunk.css.map",
     "static/js/49.1de6c532.chunk.js.LICENSE.txt": "/dating-app/static/js/49.1de6c532.chunk.js.LICENSE.txt",
     "static/js/50.34ccdb75.chunk.js.LICENSE.txt": "/dating-app/static/js/50.34ccdb75.chunk.js.LICENSE.txt",
     "static/js/88.1e197585.chunk.js.LICENSE.txt": "/dating-app/static/js/88.1e197585.chunk.js.LICENSE.txt",
@@ -205,7 +205,7 @@
     "static/js/runtime-main.20a3d7cf.js",
     "static/css/49.e6bb9c0b.chunk.css",
     "static/js/49.1de6c532.chunk.js",
-    "static/css/main.4c2d44f9.chunk.css",
+    "static/css/main.cf80edc8.chunk.css",
     "static/js/main.a442fee4.chunk.js"
   ]
 }
