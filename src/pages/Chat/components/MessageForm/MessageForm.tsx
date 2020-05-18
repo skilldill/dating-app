@@ -43,9 +43,12 @@ export const MessageForm: React.FC<MessageFormProps> = (props) => {
                         value={message}
                     />
                 </div>
-                <button className="submit">
-                    <img src={arrowUp} alt="arrow"/>
-                </button>
+                {   
+                    !!message.length && 
+                    (<button className="submit">
+                        <img src={arrowUp} alt="arrow"/>
+                    </button>    )
+                }
             </form>
         </div>
     )

@@ -20,11 +20,9 @@ export const Chat = () => {
     // Для скроллинга при появлении нового сообщения
     useEffect(() => {
         const block = messagesBlock;
-        setInterval(() => {
-            if (block && block.current) {
-                block.current.scroll()
-            }
-        }, 10)
+        if (block && block.current) {
+            block.current.scrollIntoView(false);
+        }
         
     }, [partners])
 
