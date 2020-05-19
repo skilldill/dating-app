@@ -7,3 +7,5 @@ export enum MEETING_STATUSES {
     CONFIRMED = "CONFIRMED",
     AWAITING = "AWAITING",
 }
+
+export const DATE_FORMAT = 'DD-MM-YYYY';

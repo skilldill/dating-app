@@ -1,6 +1,8 @@
+import moment from "moment";
 import { handleActions, Action } from "redux-actions";
 import { PartnersActionsTypes } from "./partners.actions";
-import { Partner } from "../../shared/models";
+import { Partner } from "shared/models";
+import { DATE_FORMAT } from "shared/constants";
 
 import { mockPartners } from "./partners.mock";
 
@@ -61,8 +63,10 @@ const sendMessage = (state: PartnersState, action: Action<any>) => {
         copyLiked[foundIndex].messages = [];
     }
 
+    const nowDate = moment().format(DATE_FORMAT);
+
     copyLiked[foundIndex].messages?.push({
-        date: '19-05-2020',
+        date: nowDate,
         text: message,
         id: `${message}-${foundIndex}`,
         myself: true
