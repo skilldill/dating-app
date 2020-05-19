@@ -57,6 +57,10 @@ const sendMessage = (state: PartnersState, action: Action<any>) => {
     const foundIndex = state.partnersLiked.findIndex((partner) => id === partner.id);
     const copyLiked = [...state.partnersLiked];
 
+    if (!copyLiked[foundIndex].messages) {
+        copyLiked[foundIndex].messages = [];
+    }
+
     copyLiked[foundIndex].messages?.push({
         date: '19-05-2020',
         text: message,
