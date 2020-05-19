@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 
 import "./style.scss";
@@ -11,6 +11,7 @@ export const MessageForm: React.FC<MessageFormProps> = (props) => {
     const [message, setMessage] = useState('');
     const { partner } = props;
     const dispatch = useDispatch();
+    const messageInput = useRef<HTMLInputElement>(null);
 
     const handleSubmit = (event: React.FocusEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -19,6 +20,10 @@ export const MessageForm: React.FC<MessageFormProps> = (props) => {
             message
         }));
         setMessage('');
+
+        if (!!messageInput.current) {
+            messageInput.current.focus();
+        }
     }
 
     const handleChangeMessage = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,6 +42,7 @@ export const MessageForm: React.FC<MessageFormProps> = (props) => {
                 </div>
                 <div className="input-message">
                     <input 
+                        ref={messageInput}
                         type="text" 
                         placeholder="Сообщение..."
                         onChange={handleChangeMessage}
