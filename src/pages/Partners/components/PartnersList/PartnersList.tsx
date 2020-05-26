@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import "./style.scss";
 import { PartnerCard } from "../PartnerCard";
-import heartOutline from "../../../../assets/icons/heart-outline.svg";
+import lunchOutline from "../../../../assets/icons/lunch-outline.png";
 import closeOutline from "../../../../assets/icons/close-circle-outline.svg";
 import syncOutline from "../../../../assets/icons/sync-outline.svg";
 import { Partner } from "shared/models";
@@ -49,7 +49,7 @@ export const PartnersList = () => {
                                 className="btn btn-circle btn-like"
                                 onClick={handleLike}
                             >
-                                <img src={heartOutline} alt="heart"/>
+                                <img src={lunchOutline} alt="heart"/>
                             </div>
                             <div 
                                 className="btn btn-circle btn-close"
