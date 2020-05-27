@@ -7,12 +7,14 @@ import { DATE_FORMAT } from "shared/constants";
 import { mockPartners } from "./partners.mock";
 
 export interface PartnersState {
+    allPartners: Partner[],
     partners: Partner[],
     partnersLiked: Partner[],
     partnersBlocked: Partner[]
 }
 
 const initialState: PartnersState = {
+    allPartners:[...mockPartners],
     partnersLiked: [mockPartners[mockPartners.length - 1]],
     partnersBlocked: [],
     partners: [...mockPartners]
@@ -48,6 +50,7 @@ const skip = (state: PartnersState, action: Action<string>) => {
 
 const dropAll = (state: PartnersState, action: Action<string>) => {
     return { 
+        ...state,
         partnersLiked: [],
         partnersBlocked: [],
         partners: [...mockPartners]

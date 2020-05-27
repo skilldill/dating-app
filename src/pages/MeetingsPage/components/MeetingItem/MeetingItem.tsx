@@ -7,7 +7,7 @@ import { Partner } from "../../../../shared/models";
 
 export const MeetingItem: React.FC<MeetingItemProps> = (props) => {
     const [partner, setPartner] = useState<Partner | null>(null);
-    const partners = useSelector<any, Partner[]>((state: any) => state.partners.partners);
+    const partners = useSelector<any, Partner[]>((state: any) => state.partners.allPartners);
     const { meeting } = props;
 
     useEffect(() => {
