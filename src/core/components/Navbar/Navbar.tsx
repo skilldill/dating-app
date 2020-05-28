@@ -5,6 +5,7 @@ import { useLocation, useHistory } from "react-router-dom";
 import "./style.scss";
 import { NavbarProps } from "./Navbar.model";
 import menuIcon from "../../../assets/icons/burger-outline.svg";
+import backIcon from "../../../assets/icons/arrow-back-outline.svg";
 
 
 export const Navbar: React.FC<NavbarProps> = (props) => {
@@ -16,7 +17,12 @@ export const Navbar: React.FC<NavbarProps> = (props) => {
     const btnBack = useMemo(() => {
         if (pathname.includes('/chat/')) {
             return (
-                <span onClick={() => history.goBack()}>Назад</span>
+                <div 
+                    className="navbar-back"
+                    onClick={() => history.goBack()}
+                >
+                    <img src={backIcon} alt="back"/>
+                </div>
             )
         }
         return null;
@@ -24,10 +30,10 @@ export const Navbar: React.FC<NavbarProps> = (props) => {
 
     return (
         <div className="navbar">
-            {btnBack}
-            <span className="navbar-title">
-                {title}
-            </span>
+            <div className="navbar-title">
+                {btnBack}
+                <span>{title}</span>
+            </div>
             <div 
                 className="menu-btn"
                 onClick={toggleMenu}

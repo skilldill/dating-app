@@ -13,5 +13,14 @@
     &-title {
         font-size: 25px;
         font-weight: 550;
+        display: flex;
+    }
+
+    &-back {
+        margin-right: 20px;
+
+        img {
+            width: 30px;
+        }
     }
 }
