@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import "./style.scss";
@@ -12,6 +12,16 @@ export const MessageForm: React.FC<MessageFormProps> = (props) => {
     const { partner } = props;
     const dispatch = useDispatch();
     const messageInput = useRef<HTMLInputElement>(null);
+    
+    
+    // Дикий костыль чтобы скрыть кнопку "DONE"
+    // На клавиатуре iphone
+    useEffect(() => {
+        if (!!messageInput.current) {
+            const input = document.getElementById('message-input');
+            input?.setAttribute('mozactionhint', 'send');
+        }
+    }, [messageInput])
 
     const handleSubmit = (event: React.FocusEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -47,6 +57,7 @@ export const MessageForm: React.FC<MessageFormProps> = (props) => {
                         placeholder="Сообщение..."
                         onChange={handleChangeMessage}
                         value={message}
+                        id="message-input"
                     />
                 </div>
                 {   
