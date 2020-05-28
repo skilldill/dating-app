@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import { Redirect } from "react-router";
-import { HashRouter as Router, Route, RouteProps } from 'react-router-dom';
+import { 
+  HashRouter as Router, 
+  Route, 
+  RouteProps, 
+} from 'react-router-dom';
 
 import "./style.scss";
 import { MIN_DIFF_TOUCH } from "../../shared/constants";
@@ -52,6 +56,11 @@ export const Routeroutlet = () => {
       setStartTouch(0);
   }
 
+  // const routesClasses = cn({
+  //   'routes-holder': true,
+  //   'routes-overflow': !location.pathname.includes('/chat/'),
+  // })
+
   return (
     <Router>
       <Navbar toggleMenu={toggleMenu} />
@@ -61,10 +70,10 @@ export const Routeroutlet = () => {
         closeMenu={() => { setIsOpenMenu(false) }}
       />
       <div
-        className="routes-holder"
+        className='routes-holder'
         onClick={handleClick}
       >
-        <div className="routes">
+        <div className="routes routes-overflow" id="routes">
           <Route path="/" render={() => <Redirect to="/partners" />} />
           {routes.map((route:RouteProps, i: number) => 
             <Route key={i} {...route} />

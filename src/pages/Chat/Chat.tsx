@@ -14,6 +14,14 @@ export const Chat = () => {
     useEffect(() => {
         const foundPartner = partners.find((curPartner) => curPartner.id === id);
         !!foundPartner && setPartner(foundPartner);
+
+        //Костыль чтобы убрать скроллинг
+        const routesBlock = document.getElementById('routes');
+        routesBlock?.classList.remove('routes-overflow');
+
+        return () => {
+            routesBlock?.classList.add('routes-overflow');
+        }
     }, [])
 
     return (
