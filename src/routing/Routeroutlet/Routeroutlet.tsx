@@ -73,12 +73,10 @@ export const Routeroutlet = () => {
         className='routes-holder'
         onClick={handleClick}
       >
-        <div className="routes routes-overflow" id="routes">
-          <Route path="/" render={() => <Redirect to="/partners" />} />
-          {routes.map((route:RouteProps, i: number) => 
-            <Route key={i} {...route} />
-          )}
-        </div>
+        <Route path="/" render={() => <Redirect to="/partners" />} />
+        {routes.map((route:RouteProps, i: number) => 
+          <Route key={i} {...route} />
+        )}
       </div>
     </Router>
   )
