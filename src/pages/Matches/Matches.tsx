@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import "./style.scss";
 import { Partner } from "shared/models"
 import { MatchesList } from "./components";
-import { SearchBar } from "shared/components";
+import { SearchBar, Page } from "shared/components";
 import { PartnersState } from "store/partners/partners.reducers";
 
 export const Matches = () => {
@@ -35,14 +35,16 @@ export const Matches = () => {
     }
 
     return (
-        <div className="matches">
-            <SearchBar 
-                placeholder="Поиск"
-                onInput={findPartners}
-            />
-            <MatchesList 
-                matches={matches} 
-            />
-        </div>
+        <Page>
+            <div className="matches">
+                <SearchBar 
+                    placeholder="Поиск"
+                    onInput={findPartners}
+                />
+                <MatchesList 
+                    matches={matches} 
+                />
+            </div>
+        </Page>
     )
 }

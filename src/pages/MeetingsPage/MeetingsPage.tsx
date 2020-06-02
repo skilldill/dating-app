@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
 import "./style.scss";
+import { Page } from "shared/components";
 import { MeetingsList, MeetingsFilter } from "./components";
-import { MEETING_STATUSES } from "../../shared/constants";
-import { Meeting } from "../../shared/models";
+import { MEETING_STATUSES } from "shared/constants";
+import { Meeting } from "shared/models";
 
 export const MeetingsPage = () => {
     const [showStatus, setShowStatus] = useState<MEETING_STATUSES | null>(null);
@@ -18,27 +19,29 @@ export const MeetingsPage = () => {
     } 
 
     return (
-        <div className="meetings-page">
-            <MeetingsFilter 
-                onChangeStatuses={setShowStatus}
-                onSearch={setSearchQuery}
-            />
-            {
-                (showStatus !== MEETING_STATUSES.CONFIRMED) && (
-                    <MeetingsList 
-                        title="В ожидании"
-                        meetings={filtredMeetings(awaitingMeetings)}
-                    />
-                )
-            }
-            {
-                (showStatus !== MEETING_STATUSES.AWAITING) && (
-                    <MeetingsList 
-                        title="Подтверждённые"
-                        meetings={filtredMeetings(confirmedMeetings)}
-                    />
-                )
-            }
-        </div>
+        <Page>
+            <div className="meetings-page">
+                <MeetingsFilter 
+                    onChangeStatuses={setShowStatus}
+                    onSearch={setSearchQuery}
+                />
+                {
+                    (showStatus !== MEETING_STATUSES.CONFIRMED) && (
+                        <MeetingsList 
+                            title="В ожидании"
+                            meetings={filtredMeetings(awaitingMeetings)}
+                        />
+                    )
+                }
+                {
+                    (showStatus !== MEETING_STATUSES.AWAITING) && (
+                        <MeetingsList 
+                            title="Подтверждённые"
+                            meetings={filtredMeetings(confirmedMeetings)}
+                        />
+                    )
+                }
+            </div>
+        </Page>
     )
 }

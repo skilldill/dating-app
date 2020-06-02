@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 import { IonSpinner } from "@ionic/react";
 
 import "./style.scss";
-import { Partner } from "../../shared/models";
-import { ModalBottom } from "../../shared/components";
+import { Partner } from "shared/models";
+import { ModalBottom, Page } from "shared/components";
 import { MittingForm } from "./components";
 
 // Mock fetch чтобы продемонстрировать загрузку данных
@@ -40,40 +40,42 @@ export const PartnerPage = () => {
     }
 
     return (
-        <div className="partner-page">
-            {partner ? (
-                <>
-                    <div className="avatar">
-                        <img src={partner.avatar} alt={partner.name} />
+        <Page>
+            <div className="partner-page">
+                {partner ? (
+                    <>
+                        <div className="avatar">
+                            <img src={partner.avatar} alt={partner.name} />
+                        </div>
+                        <div className="description">
+                            <h3>{partner.name}</h3>
+                        </div>
+                        <div className="controls">
+                            <button 
+                                className="btn btn-primary"
+                                onClick={openChat}
+                            >Написать</button>
+                            <button 
+                                className="btn btn-primary"
+                                onClick={handleOpenFormDate}
+                            >Пригласить</button>
+                        </div>
+                    </>
+                ) : (
+                    <div className="partner-page-loading">
+                        <IonSpinner />
                     </div>
-                    <div className="description">
-                        <h3>{partner.name}</h3>
-                    </div>
-                    <div className="controls">
-                        <button 
-                            className="btn btn-primary"
-                            onClick={openChat}
-                        >Написать</button>
-                        <button 
-                            className="btn btn-primary"
-                            onClick={handleOpenFormDate}
-                        >Пригласить</button>
-                    </div>
-                </>
-            ) : (
-                <div className="partner-page-loading">
-                    <IonSpinner />
-                </div>
-            )}
-            {
-                showFormDate && (
-                <ModalBottom onClose={() => setShowFormDate(false)}>
-                    <MittingForm 
-                        partnerId={partner ? partner.id : ''}
-                        onSubmit={() => setShowFormDate(false)} 
-                    />
-                </ModalBottom>
-            )}
-        </div>
+                )}
+                {
+                    showFormDate && (
+                    <ModalBottom onClose={() => setShowFormDate(false)}>
+                        <MittingForm 
+                            partnerId={partner ? partner.id : ''}
+                            onSubmit={() => setShowFormDate(false)} 
+                        />
+                    </ModalBottom>
+                )}
+            </div>
+        </Page>
     )
 }
