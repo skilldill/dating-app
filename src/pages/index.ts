@@ -4,6 +4,7 @@ import { Matches } from "./Matches";
 import { PartnerPage } from "./PartnerPage";
 import { MeetingsPage } from "./MeetingsPage";
 import { Chat } from "./Chat";
+import { Onboarding } from "./Onboarding";
 
 export {
     Profile,
@@ -11,5 +12,6 @@ export {
     Matches,
     PartnerPage,
     MeetingsPage,
-    Chat
+    Chat,
+    Onboarding
 }
