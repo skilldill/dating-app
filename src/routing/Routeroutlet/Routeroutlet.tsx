@@ -13,6 +13,17 @@ import { SideMenu, Navbar } from "../../core/components";
 import { routes } from "./routes";
 import { NavbarActions } from "../../store/navbar/navbar.actions"
 
+// Нужен для того чтобы можно было 
+// определять перед стартом приложения
+// показывать ли onboarding
+// пока что инфа по показыванию onboarding
+// хранится в localstorage
+const CustomRedirect = () => {
+  const isShowedOnboarding = localStorage.getItem('isShowedOnboarding');
+  const path = isShowedOnboarding ? '/partners' : '/onboarding';
+  return <Redirect to={path} />
+}
+
 export const Routeroutlet = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [startTouch, setStartTouch] = useState(0);
@@ -73,7 +84,7 @@ export const Routeroutlet = () => {
         className='routes-holder'
         onClick={handleClick}
       >
-        <Route path="/" render={() => <Redirect to="/partners" />} />
+        <Route path="/" render={CustomRedirect} />
         {routes.map((route:RouteProps, i: number) => 
           <Route key={i} {...route} />
         )}
