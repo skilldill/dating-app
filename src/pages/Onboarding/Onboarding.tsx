@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import "./style.scss";
 import { OnboardingProps } from "./Onboarding.model";
 import { NavbarActions } from "store/navbar/navbar.actions";
+import { Board } from "./components";
 
 export const Onboarding: React.FC<OnboardingProps> = (props) => {
   const dispatch = useDispatch();
@@ -12,6 +13,8 @@ export const Onboarding: React.FC<OnboardingProps> = (props) => {
   }, []);
 
   return (
-    <div className="onboarding"></div>
+    <div className="onboarding">
+      
+    </div>
   )
 }

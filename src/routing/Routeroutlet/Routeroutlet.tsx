@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from "react-router";
+import cn from "classnames";
 import { 
   HashRouter as Router, 
   Route, 
@@ -10,23 +11,24 @@ import "./style.scss";
 import { MIN_DIFF_TOUCH } from "../../shared/constants";
 import { SideMenu, Navbar } from "../../core/components";
 import { routes } from "./routes";
-import { NavbarActions } from "../../store/navbar/navbar.actions"
-
-// Нужен для того чтобы можно было 
-// определять перед стартом приложения
-// показывать ли onboarding
-// пока что инфа по показыванию onboarding
-// хранится в localstorage
-const CustomRedirect = () => {
-  const isShowedOnboarding = localStorage.getItem('isShowedOnboarding');
-  const path = isShowedOnboarding ? '/partners' : '/onboarding';
-  return <Redirect to={path} />
-}
 
 export const Routeroutlet = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [startTouch, setStartTouch] = useState(0);
   const [endTouch, setEndTouch] = useState(0);
+  const [redirectPath, setRedirectPath] = useState('');
+
+  // Нужен для того чтобы можно было 
+  // определять перед стартом приложения
+  // показывать ли onboarding
+  // пока что инфа по показыванию onboarding
+  // хранится в localstorage
+  useEffect(() => {
+    const isShowedOnboarding = localStorage.getItem('isShowedOnboarding');
+    const path = isShowedOnboarding ? '/partners' : '/onboarding';
+    setRedirectPath(path);
+  }, []);
+
 
   const toggleMenu = () => {
     isOpenMenu ? setIsOpenMenu(false) : setIsOpenMenu(true);
@@ -66,6 +68,11 @@ export const Routeroutlet = () => {
   //   'routes-overflow': !location.pathname.includes('/chat/'),
   // })
 
+  const holderClasses = cn({
+    'routes-holder': true,
+    'routes-holder-padding': redirectPath !== '/onboarding'
+  })
+
   return (
     <Router>
       <Navbar toggleMenu={toggleMenu} />
@@ -75,10 +82,10 @@ export const Routeroutlet = () => {
         closeMenu={() => { setIsOpenMenu(false) }}
       />
       <div
-        className='routes-holder'
+        className={holderClasses}
         onClick={handleClick}
       >
-        <Route path="/" render={CustomRedirect} />
+        <Route path="/" render={() => <Redirect to={redirectPath} />} />
         {routes.map((route:RouteProps, i: number) => 
           <Route key={i} {...route} />
         )}
