@@ -29,17 +29,24 @@ export const Navbar: React.FC<NavbarProps> = (props) => {
     }, [pathname])
 
     return (
-        <div className="navbar">
-            <div className="navbar-title">
-                {btnBack}
-                <span>{title}</span>
-            </div>
-            <div 
-                className="menu-btn"
-                onClick={toggleMenu}
-            >
-                <img src={menuIcon} alt="lines"/>
-            </div>
-        </div>
+        <>
+            { 
+                !!title.length && (
+                    <div className="navbar">
+                        <div className="navbar-title">
+                            {btnBack}
+                            <span>{title}</span>
+                        </div>
+                        <div 
+                            className="menu-btn"
+                            onClick={toggleMenu}
+                        >
+                            <img src={menuIcon} alt="lines"/>
+                        </div>
+                    </div>
+                ) 
+            }
+        </>
+        
     )
 }

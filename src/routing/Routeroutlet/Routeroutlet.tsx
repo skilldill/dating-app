@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch } from "react-redux";
+import React, { useState } from 'react';
 import { Redirect } from "react-router";
 import { 
   HashRouter as Router, 
@@ -28,11 +27,6 @@ export const Routeroutlet = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [startTouch, setStartTouch] = useState(0);
   const [endTouch, setEndTouch] = useState(0);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(NavbarActions.changeTitle("Коллеги"))
-  }, [dispatch])
 
   const toggleMenu = () => {
     isOpenMenu ? setIsOpenMenu(false) : setIsOpenMenu(true);
