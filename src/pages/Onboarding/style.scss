@@ -1,4 +1,59 @@
 .onboarding {
     background: linear-gradient(180deg, #A76ED5 0%, #7DA4DF 100%);
     height: 100vh;
+    overflow-x: hidden;
+
+    &-boards {
+        display: flex;
+
+        .board {
+            text-align: center;
+            padding-top: 63px;
+            margin-bottom: 61px;
+            
+            img {
+                min-width: 300px;
+            }
+            p {
+                font-size: 20px;
+                line-height: 23px;
+                color: #FFFFFF;
+                width: 235px;
+                margin: auto;
+                margin-top: 56px;
+            }
+        }
+    }
+    
+    &-controls {
+        .marks {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 35px;
+
+            .mark {
+                width: 10px;
+                height: 10px;
+                border-radius: 100%;
+                background-color: rgba(255, 255, 255, 0.42);
+                margin: 0px 7px;
+                transition: background .3s;
+            }
+
+            .mark-active {
+                background-color: white;
+            }
+        }
+
+        .btn-holder {
+            display: flex;
+            justify-content: center;
+
+            .btn-next {
+                background: rgba(255, 255, 255, 0.44);
+                border-radius: 10px;
+                color: white;
+            }
+        }
+    }
 }
