@@ -1,0 +1,11 @@
+@import "../../../../theme/variables.scss";
+
+.settings-block {
+    border-top: 1px solid #92949c;
+    border-bottom: 1px solid #92949c;
+    padding: 10px 0;
+
+    .title {
+        color: #92949c;
+    }
+}

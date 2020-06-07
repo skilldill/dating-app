@@ -88,17 +88,20 @@ export const Onboarding: React.FC<OnboardingProps> = (props) => {
     
   }
 
-  //  Пока кнопка "Дальше"
   const handleClickNext = () => {
-    const updatedBoardActiveId = currentBoardId + 1;
-    setDiffTouches(-boardWidth * updatedBoardActiveId);
-    setCurentBoardId(updatedBoardActiveId);
-  }
+    //  Пока кнопка "Дальше"
+    if (btnNextContent === "Дальше") {
+      const updatedBoardActiveId = currentBoardId + 1;
+      setDiffTouches(-boardWidth * updatedBoardActiveId);
+      setCurentBoardId(updatedBoardActiveId);
+    }
 
-  // Когда кнопка "Начать"
-  const handleClickReady = () => {
-    localStorage.setItem(KEY_ONBOARDING, JSON.stringify(true));
-    history.push('/partners');
+    // Когда кнопка "Начать"
+    if (btnNextContent === "Начать") {
+      localStorage.setItem(KEY_ONBOARDING, JSON.stringify(true));
+      window.location.href = '/partners';
+      // history.push('/partners');
+    }
   }
 
   const boardsStyle: CSSProperties = {
