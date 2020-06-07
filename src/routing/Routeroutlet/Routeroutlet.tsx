@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 
 import "./style.scss";
-import { MIN_DIFF_TOUCH } from "../../shared/constants";
+import { MIN_DIFF_TOUCH, KEY_ONBOARDING } from "../../shared/constants";
 import { SideMenu, Navbar } from "../../core/components";
 import { routes } from "./routes";
 
@@ -24,8 +24,11 @@ export const Routeroutlet = () => {
   // пока что инфа по показыванию onboarding
   // хранится в localstorage
   useEffect(() => {
-    const isShowedOnboarding = localStorage.getItem('isShowedOnboarding');
-    const path = isShowedOnboarding ? '/partners' : '/onboarding';
+    const isShowedOnboarding = localStorage.getItem(KEY_ONBOARDING);
+
+    console.log(isShowedOnboarding);
+
+    const path = !!isShowedOnboarding ? '/partners' : '/onboarding';
     setRedirectPath(path);
   }, []);
 

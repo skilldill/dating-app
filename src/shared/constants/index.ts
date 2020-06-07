@@ -9,3 +9,4 @@ export enum MEETING_STATUSES {
 }
 
 export const DATE_FORMAT = 'DD-MM-YYYY';
+export const KEY_ONBOARDING = 'isShowedOnboarding';

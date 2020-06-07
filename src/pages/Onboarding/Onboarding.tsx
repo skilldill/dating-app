@@ -1,9 +1,10 @@
 import React, { useEffect, useState, CSSProperties } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import cn from "classnames";
 
 import "./style.scss";
-import { MIN_DIFF_TOUCH } from "shared/constants";
+import { MIN_DIFF_TOUCH, KEY_ONBOARDING } from "shared/constants";
 import { OnboardingProps } from "./Onboarding.model";
 import { NavbarActions } from "store/navbar/navbar.actions";
 
@@ -13,6 +14,8 @@ import endPicture from "assets/onboarding/end.png";
 
 export const Onboarding: React.FC<OnboardingProps> = (props) => {
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const [btnNextContent, setBtnNextContent] = useState('Дальше');
   const [boardWidth, setBoardWidth] = useState(0);
   const [holded, setHolded] = useState(true);
@@ -85,16 +88,24 @@ export const Onboarding: React.FC<OnboardingProps> = (props) => {
     
   }
 
+  //  Пока кнопка "Дальше"
   const handleClickNext = () => {
     const updatedBoardActiveId = currentBoardId + 1;
     setDiffTouches(-boardWidth * updatedBoardActiveId);
     setCurentBoardId(updatedBoardActiveId);
   }
 
+  // Когда кнопка "Начать"
+  const handleClickReady = () => {
+    localStorage.setItem(KEY_ONBOARDING, JSON.stringify(true));
+    history.push('/partners');
+  }
+
   const boardsStyle: CSSProperties = {
     transform: `translateX(${diffTouches}px)`,
     transition: holded ? 'transform .3s': 'none'
   }
+
 
   return (
     <div className="onboarding">
