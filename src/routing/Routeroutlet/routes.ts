@@ -6,7 +6,8 @@ import {
     MeetingsPage,
     Chat,
     Onboarding,
-    Settings
+    Settings,
+    Authorzation
 } from "../../pages"
 import { RouteNamedProps } from "../routes.model";
 
@@ -19,5 +20,6 @@ export const routes: RouteNamedProps[] = [
     { path: "/settings", name: "Настройки", component: Settings },
     { path: "/partner/:id", component: PartnerPage },
     { path: "/chat/:id", component: Chat },
-    { path: "/onboarding", component: Onboarding }
+    { path: "/onboarding", component: Onboarding },
+    { path: "/auth", component: Authorzation }
 ]

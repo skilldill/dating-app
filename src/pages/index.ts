@@ -6,6 +6,7 @@ import { MeetingsPage } from "./MeetingsPage";
 import { Chat } from "./Chat";
 import { Onboarding } from "./Onboarding";
 import { Settings } from "./Settings";
+import { Authorzation } from "./Authorization";
 
 export {
     Profile,
@@ -15,5 +16,6 @@ export {
     MeetingsPage,
     Chat,
     Onboarding,
-    Settings
+    Settings,
+    Authorzation
 }
