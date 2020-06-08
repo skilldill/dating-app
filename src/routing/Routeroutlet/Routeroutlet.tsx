@@ -25,13 +25,9 @@ export const Routeroutlet = () => {
   // хранится в localstorage
   useEffect(() => {
     const isShowedOnboarding = localStorage.getItem(KEY_ONBOARDING);
-
-    console.log(isShowedOnboarding);
-
     const path = !!isShowedOnboarding ? '/partners' : '/onboarding';
     setRedirectPath(path);
   }, []);
-
 
   const toggleMenu = () => {
     isOpenMenu ? setIsOpenMenu(false) : setIsOpenMenu(true);
@@ -66,16 +62,6 @@ export const Routeroutlet = () => {
       setStartTouch(0);
   }
 
-  // const routesClasses = cn({
-  //   'routes-holder': true,
-  //   'routes-overflow': !location.pathname.includes('/chat/'),
-  // })
-
-  const holderClasses = cn({
-    'routes-holder': true,
-    'routes-holder-padding': redirectPath !== '/onboarding'
-  })
-
   return (
     <Router>
       <Navbar toggleMenu={toggleMenu} />
@@ -85,7 +71,7 @@ export const Routeroutlet = () => {
         closeMenu={() => { setIsOpenMenu(false) }}
       />
       <div
-        className={holderClasses}
+        className="routes-holder"
         onClick={handleClick}
       >
         <Route path="/" render={() => <Redirect to={redirectPath} />} />

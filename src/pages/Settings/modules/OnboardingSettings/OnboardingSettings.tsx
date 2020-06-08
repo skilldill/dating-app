@@ -9,8 +9,7 @@ export const OnboardingSettings = () => {
 
     const handleClick = () => {
         localStorage.clear();
-        window.location.href = '/onboarding';
-        // history.push('/onboarding');
+        history.push('/onboarding');
     }
 
     return (
