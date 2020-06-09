@@ -1,0 +1,57 @@
+.authorization {
+    padding: 20px;
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        transition: all .3s;
+        
+        img {
+            width: 100px;
+            transition: all .3s;
+        }
+    }
+
+    .logo-collapsed {
+        // margin-top: 20px;
+        // margin-bottom: 20px;
+        transition: all .3s;
+        
+        img {
+            width: 80px;
+            transition: all .3s;
+        }
+    }
+
+    .change-control {
+        text-align: center;
+        margin-top: 20px;
+
+        a {
+            color: #696969;
+            text-decoration: none;
+            font-size: 15px;
+        }
+    }
+    
+    .form {
+        width: 100%;
+
+        .title {
+            text-align: center;
+        }
+
+        .controls-inputs {
+            border: 1px solid #c9c9c970;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            width: 100%;
+            font-size: 15px;
+        }
+    }
+}
