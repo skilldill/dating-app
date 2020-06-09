@@ -99,7 +99,7 @@ export const Onboarding: React.FC<OnboardingProps> = (props) => {
     // Когда кнопка "Начать"
     if (btnNextContent === "Начать") {
       localStorage.setItem(KEY_ONBOARDING, JSON.stringify(true));
-      window.location.href = '/partners';
+      window.location.href = '/auth';
       // history.push('/partners');
     }
   }

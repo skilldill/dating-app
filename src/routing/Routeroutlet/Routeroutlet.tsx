@@ -25,7 +25,7 @@ export const Routeroutlet = () => {
   // хранится в localstorage
   useEffect(() => {
     const isShowedOnboarding = localStorage.getItem(KEY_ONBOARDING);
-    const path = !!isShowedOnboarding ? '/auth' : '/onboarding';
+    const path = !!isShowedOnboarding ? '/partners' : '/onboarding';
     setRedirectPath(path);
   }, []);
 
