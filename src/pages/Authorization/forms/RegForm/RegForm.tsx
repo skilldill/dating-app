@@ -21,7 +21,7 @@ export const RegForm = () => {
                 <Input type="password" placeholder="Повторите пароль" />
             </div>
             <div>
-                <button className="btn">Зарегистрироваться</button>
+                <button className="btn" type="submit">Зарегистрироваться</button>
             </div>
         </div>
     )

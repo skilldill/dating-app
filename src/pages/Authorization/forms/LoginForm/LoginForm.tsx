@@ -20,7 +20,7 @@ export const LoginForm = () => {
                 <Input type="password" placeholder="Пароль" />
             </div>
             <div>
-                <button className="btn">Войти</button>
+                <button className="btn" type="submit">Войти</button>
             </div>
         </div>
     )
