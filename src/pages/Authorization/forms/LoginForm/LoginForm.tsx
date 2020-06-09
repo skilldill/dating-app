@@ -13,7 +13,7 @@ export const LoginForm = () => {
     } 
 
     return (
-        <div className="form login-form" onSubmit={handleSubmit}>
+        <form className="form login-form" onSubmit={handleSubmit}>
             <h3 className="title">Вход</h3>
             <div className="controls-inputs">
                 <Input placeholder="Логин" bottomBorder />
@@ -22,6 +22,6 @@ export const LoginForm = () => {
             <div>
                 <button className="btn" type="submit">Войти</button>
             </div>
-        </div>
+        </form>
     )
 }

@@ -13,7 +13,7 @@ export const RegForm = () => {
     } 
 
     return (
-        <div className="form login-form" onSubmit={handleSubmit}>
+        <form className="form login-form" onSubmit={handleSubmit}>
             <h3 className="title">Регистрация</h3>
             <div className="controls-inputs">
                 <Input placeholder="E-mail" bottomBorder />
@@ -23,6 +23,6 @@ export const RegForm = () => {
             <div>
                 <button className="btn" type="submit">Зарегистрироваться</button>
             </div>
-        </div>
+        </form>
     )
 }
