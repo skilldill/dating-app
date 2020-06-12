@@ -1,12 +1,30 @@
 @import "../../../../theme/variables.scss";
 
 .meetings-filter {
+    display: flex;
+    justify-content: space-between;
+
     .search-bar-block {
         padding: 0;
+        width: 100%;
     }
 
     .radio {
-        margin-top: 10px;
         text-align: center;
+    }
+
+    .btn-toggle {
+        background-color: $gray-input-bg;
+        border: none;
+        border-radius: 100%;
+        margin-left: 8px;
+        width: 35px;
+        height: 33px;
+        outline: none;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
     }
 }
