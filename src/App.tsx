@@ -1,6 +1,7 @@
 import React from 'react';
 import { IonApp } from '@ionic/react';
 import { Provider } from "react-redux";
+import 'moment/locale/ru';
 
 import { store } from "./store";
 import { Routeroutlet } from "./routing";

@@ -1,3 +1,4 @@
 export interface ModalBottomProps {
-    onClose?: () => void
+    onClose?: () => void;
+    height?: number
 }

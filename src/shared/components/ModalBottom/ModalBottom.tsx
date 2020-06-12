@@ -5,7 +5,7 @@ import { ModalBottomProps } from "./ModalBottom.model";
 import { MIN_DIFF_MODAL } from "../../constants";
 
 export const ModalBottom: React.FC<ModalBottomProps> = (props) => {
-    const { onClose, children } = props;
+    const { onClose, children, height } = props;
     const [closed, setClosed] = useState(false);
     const [touchStart, setTouchStart] = useState(0);
     const [touchCurrent, setTouchCurrent] = useState(0);
@@ -115,6 +115,7 @@ export const ModalBottom: React.FC<ModalBottomProps> = (props) => {
             <div 
                 className="modal-bottom"
                 style={{
+                    height: !!height ? height : 300,
                     ...calcTranslateStyle(),
                     ...styleWithTransition(),
                     ...initialTransform()
