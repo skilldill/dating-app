@@ -12,10 +12,12 @@
             
             button {
                 border-radius: 10px;
+                min-width: 34px;
             }
 
             .react-calendar__navigation__label {
                 font-size: 14px;
+                min-width: 200px;
 
                 .react-calendar__navigation__label__labelText {
                     min-width: 200px;
