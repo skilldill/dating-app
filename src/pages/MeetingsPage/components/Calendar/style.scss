@@ -10,8 +10,16 @@
         
         .react-calendar__navigation {
             
+            button {
+                border-radius: 10px;
+            }
+
             .react-calendar__navigation__label {
                 font-size: 14px;
+
+                .react-calendar__navigation__label__labelText {
+                    min-width: 200px;
+                }
             }
 
             .react-calendar__navigation__arrow {

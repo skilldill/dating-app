@@ -17,7 +17,6 @@ export const MeetingsCalendar: React.FC<MeetingsCalendarProps> = (props) => {
         const meetingsToday = meetings.filter((meeting) => meeting.date === tileFormatedDate);
         
         if (!!meetingsToday.length) {
-            console.log(meetingsToday.length);
             return (
                 <div className="meeting-day">
                     <div className="meetings-count">
