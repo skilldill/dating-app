@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import "./style.scss";
 import { Page } from "shared/components";
-import { MeetingsList, MeetingsFilter } from "./components";
+import { MeetingsList, MeetingsFilter, MeetingsCalendar } from "./components";
 import { MEETING_STATUSES } from "shared/constants";
 import { Meeting } from "shared/models";
 
@@ -20,7 +20,8 @@ export const MeetingsPage = () => {
 
     return (
         <Page>
-            <div className="meetings-page">
+            <MeetingsCalendar meetings={meetings} />
+            {/* <div className="meetings-page">
                 <MeetingsFilter 
                     onChangeStatuses={setShowStatus}
                     onSearch={setSearchQuery}
@@ -41,7 +42,7 @@ export const MeetingsPage = () => {
                         />
                     )
                 }
-            </div>
+            </div> */}
         </Page>
     )
 }

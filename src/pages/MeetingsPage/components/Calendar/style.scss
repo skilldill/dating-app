@@ -1,0 +1,47 @@
+
+.meetings-calendar {
+    display: flex;
+    justify-content: center;
+
+    // customize react-calendar
+    .react-calendar {
+        border: none;
+        
+        .react-calendar__month-view__days {
+            
+            .react-calendar__tile {
+                position: relative;
+                font-size: 20px;
+                overflow: visible !important;
+
+                .meeting-day {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border-radius: 10px;
+                    border: 2px solid rgb(158, 168, 228);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .meetings-count {
+                        position: absolute;
+                        top: -10px;
+                        right: -10px;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: rgb(119, 141, 173);
+                        color: white;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
