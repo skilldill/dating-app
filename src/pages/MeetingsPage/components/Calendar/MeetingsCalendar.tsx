@@ -18,7 +18,12 @@ export const MeetingsCalendar: React.FC<MeetingsCalendarProps> = (props) => {
         // date в Meeting в формате year-month-day
         const { date } = props;
         const tileFormatedDate = moment(date).format('DD-MM-YYYY');
-        const day = tileFormatedDate.split('-')[0];
+        let day = tileFormatedDate.split('-')[0];
+
+        // Убераем начальный ноль если он есть
+        if (day[0] === "0") {
+            day = day[1];
+        }
 
         const meetingsToday = meetings.filter((meeting) => meeting.date === tileFormatedDate);
         
@@ -54,10 +59,12 @@ export const MeetingsCalendar: React.FC<MeetingsCalendarProps> = (props) => {
                         onClose={() => setShowModal(false)}
                         height={window.innerHeight - 40}
                     >
-                        <MeetingsList 
-                            title={modalTitle}
-                            meetings={currentMeetings} 
-                        />
+                        <div className="modal-meetings">
+                            <MeetingsList 
+                                title={modalTitle}
+                                meetings={currentMeetings} 
+                            />
+                        </div>
                     </ModalBottom>
                 )
             }

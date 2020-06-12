@@ -4,7 +4,7 @@ import { MEETING_STATUSES } from "../../shared/constants";
 export const mockMeetings: Meeting[] = [
     { 
         id: "1", 
-        date: "18-06-2020", 
+        date: "09-06-2020", 
         time: "12:00", 
         partnerId: "3",
         description: "Встретимся у ресепшена",
@@ -12,7 +12,7 @@ export const mockMeetings: Meeting[] = [
     },
     { 
         id: "2", 
-        date: "18-06-2020", 
+        date: "09-06-2020", 
         time: "13:00", 
         partnerId: "3",
         description: "В кафе на Пушкина",
@@ -28,7 +28,7 @@ export const mockMeetings: Meeting[] = [
     },
     { 
         id: "4", 
-        date: "20-06-2020", 
+        date: "05-06-2020", 
         time: "12:00", 
         partnerId: "3",
         status: MEETING_STATUSES.CONFIRMED
@@ -58,7 +58,29 @@ export const mockMeetings: Meeting[] = [
     },
     { 
         id: "12", 
-        date: "20-06-2020", 
+        date: "05-06-2020", 
+        time: "12:00", 
+        partnerId: "3",
+        status: MEETING_STATUSES.AWAITING
+    },
+    { 
+        id: "3dыфв", 
+        date: "15-07-2020", 
+        time: "12:00", 
+        partnerId: "3",
+        description: "Пригласи Лукаса, у меня для него новости",
+        status: MEETING_STATUSES.AWAITING
+    },
+    { 
+        id: "12dsad", 
+        date: "15-07-2020", 
+        time: "12:00", 
+        partnerId: "3",
+        status: MEETING_STATUSES.AWAITING
+    },
+    { 
+        id: "12dsad", 
+        date: "30-07-2020", 
         time: "12:00", 
         partnerId: "3",
         status: MEETING_STATUSES.AWAITING
