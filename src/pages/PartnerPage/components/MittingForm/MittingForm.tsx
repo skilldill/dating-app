@@ -16,10 +16,11 @@ export const MittingForm: React.FC<MittingFormProps> = (props) => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (!!date.length && !!time.length) {
+            const dateParts = date.split('-');
             const meeting: Meeting = {
                 id: `${date}-${time}-${partnerId}`,
                 status: MEETING_STATUSES.CONFIRMED,
-                date,
+                date: `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`,
                 time,
                 partnerId,
             }
@@ -34,7 +35,6 @@ export const MittingForm: React.FC<MittingFormProps> = (props) => {
     }
 
     const handleChangeTime = (event: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(event.currentTarget.value)
         setTime(event.currentTarget.value);
     }
 
