@@ -63,8 +63,11 @@
                         justify-content: center;
                         align-items: center;
                         background-color: rgb(119, 141, 173);
+                        background: rgb(158,168,228);
+                        background: linear-gradient(45deg, rgba(158,168,228,1) 0%, rgba(119,141,173,1) 100%);  
                         color: white;
                         font-size: 15px;
+                        z-index: 1;
                     }
                 }
             }
