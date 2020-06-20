@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/dating-app/precache-manifest.f41eb0af31bffaef6094dd9126d564cf.js"
+  "/dating-app/precache-manifest.4a093ed69670b4b80a4222ae8460b23e.js"
 );
 
 self.addEventListener('message', (event) => {
