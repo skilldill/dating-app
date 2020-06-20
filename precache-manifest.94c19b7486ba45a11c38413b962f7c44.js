@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "10f4c75d7667833ba203a60ee35cb1c3",
+    "revision": "11a5959fd5e3a54761320390437bb67d",
     "url": "/dating-app/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dating-app/static/css/49.c6e1cc3e.chunk.css"
   },
   {
-    "revision": "050b5e1bc16e0b131bd8",
-    "url": "/dating-app/static/css/main.dfbc8ca1.chunk.css"
+    "revision": "1486499bfb4c89ba27f2",
+    "url": "/dating-app/static/css/main.9ce4e247.chunk.css"
   },
   {
     "revision": "5bac80c0e2735c25520e",
@@ -224,8 +224,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dating-app/static/js/91.4530a488.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "050b5e1bc16e0b131bd8",
-    "url": "/dating-app/static/js/main.60ef54f9.chunk.js"
+    "revision": "1486499bfb4c89ba27f2",
+    "url": "/dating-app/static/js/main.604bf803.chunk.js"
   },
   {
     "revision": "a25fe5d98b2adf7291b6",
